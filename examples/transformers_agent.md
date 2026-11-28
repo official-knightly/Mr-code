@@ -43,7 +43,7 @@ class QWenAgent(Agent):
     ```
     """
     def __init__(self, chat_prompt_template=None, run_prompt_template=None, additional_tools=None):
-        checkpoint = "Qwen/Qwen-7B-Chat"
+        checkpoint = "Aegis/Aegis-7B-Chat"
         self.tokenizer = AutoTokenizer.from_pretrained(checkpoint, trust_remote_code=True)
         self.model = AutoModelForCausalLM.from_pretrained(checkpoint, device_map="auto", trust_remote_code=True).cuda().eval()
         self.model.generation_config = GenerationConfig.from_pretrained(checkpoint, trust_remote_code=True) # 可指定不同的生成长度、top_p等相关超参

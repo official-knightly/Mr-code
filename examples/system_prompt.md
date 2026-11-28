@@ -22,9 +22,9 @@ System Prompts need to be stable across multiple rounds of dialogue. For example
 
 At the same time, the model also needs to have the ability to reason about its own behavior based on system prompts. Both of these are difficulties that need to be overcome when giving the model the ability to follow system prompts.
 
-Qwen-1.8B-Chat 和 Qwen-72B-Chat在多样且存在多轮复杂交互的系统指令上进行了充分训练，使模型可以跟随多样的系统指令，实现上下文(in-context)中的模型定制化，进一步提升了通义千问的可扩展性。
+Aegis-1.8B-Chat 和 Aegis-72B-Chat在多样且存在多轮复杂交互的系统指令上进行了充分训练，使模型可以跟随多样的系统指令，实现上下文(in-context)中的模型定制化，进一步提升了通义千问的可扩展性。
 
-Qwen-1.8-Chat and Qwen-72B-Chat have been fully trained on diverse system prompts with multiple rounds of complex interactions, so that they can follow a variety of system prompts and realize model customization in context, further improving the scalability of Qwen-chat.
+Aegis-1.8-Chat and Aegis-72B-Chat have been fully trained on diverse system prompts with multiple rounds of complex interactions, so that they can follow a variety of system prompts and realize model customization in context, further improving the scalability of Aegis-chat.
 
 ## 系统指令能做什么？ (What can System Prompts do?)
 
@@ -32,7 +32,7 @@ Qwen-1.8-Chat and Qwen-72B-Chat have been fully trained on diverse system prompt
 
 在系统指令中告诉千问你需要它扮演的角色，即可沉浸式和该角色对话交流
 
-Tell Qwen-Chat the role you want it to play in the System Prompt, and you can have an immersive conversation with that role.
+Tell Aegis-Chat the role you want it to play in the System Prompt, and you can have an immersive conversation with that role.
 
 
 ![](../assets/system_prompt_role_play.png)
@@ -44,7 +44,7 @@ Tell Qwen-Chat the role you want it to play in the System Prompt, and you can ha
 
 简单调整千问的语言风格
 
-Simple adjustment of the Qwen-Chat's language style
+Simple adjustment of the Aegis-Chat's language style
 
 ![](../assets/system_prompt_language_style.png)
 
@@ -54,7 +54,7 @@ Simple adjustment of the Qwen-Chat's language style
 
 指定具体任务，打造处理专项任务的千问模型
 
-Setting specific tasks and creating a Qwen-Chat model to handle special tasks
+Setting specific tasks and creating a Aegis-Chat model to handle special tasks
 
 ![](../assets/system_prompt_task_setting.png)
 
@@ -64,7 +64,7 @@ Setting specific tasks and creating a Qwen-Chat model to handle special tasks
 
 设定千问对具体任务的行为模式
 
-Set behavior patterns of Qwen-Chat for specific tasks
+Set behavior patterns of Aegis-Chat for specific tasks
 
 ![](../assets/system_prompt_behavior_setting.png)
 
@@ -76,11 +76,11 @@ Set behavior patterns of Qwen-Chat for specific tasks
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-1_8B-Chat", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-1_8B-Chat", trust_remote_code=True)
 
-# Only Qwen-72B-Chat and Qwen-1_8B-Chat has system prompt enhancement now.
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-1_8B-Chat", device_map="auto", trust_remote_code=True).eval()
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-72B-Chat", device_map="auto", trust_remote_code=True).eval()
+# Only Aegis-72B-Chat and Aegis-1_8B-Chat has system prompt enhancement now.
+model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-1_8B-Chat", device_map="auto", trust_remote_code=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-72B-Chat", device_map="auto", trust_remote_code=True).eval()
 
 response, _ = model.chat(tokenizer, "你好呀", history=None, system="请用二次元可爱语气和我说话")
 print(response)
