@@ -1,5 +1,5 @@
-# Fine-tuning Qwen by Ascend NPU
-Below, we provide a simple example to show how to finetune Qwen by Ascend NPU. Currently, fine-tuning and inference are supported for Qwen 7B and 14B models. You can also refer to the official [mindformers](https://gitee.com/mindspore/mindformers/blob/dev/research/qwen/qwen.md) for detailed usage.
+# Fine-tuning Aegis by Ascend NPU
+Below, we provide a simple example to show how to finetune Aegis by Ascend NPU. Currently, fine-tuning and inference are supported for Aegis 7B and 14B models. You can also refer to the official [mindformers](https://gitee.com/mindspore/mindformers/blob/dev/research/aegis/aegis.md) for detailed usage.
 
 ## Environment Requirement
 
@@ -10,7 +10,7 @@ Below, we provide a simple example to show how to finetune Qwen by Ascend NPU. C
 1. Launch Docker Image
 
 ```bash
-ImageID=pai-image-manage-registry.cn-wulanchabu.cr.aliyuncs.com/pai/llm-inference:qwen_v23.0.rc3
+ImageID=pai-image-manage-registry.cn-wulanchabu.cr.aliyuncs.com/pai/llm-inference:aegis_v23.0.rc3
 docker run -it -u root --ipc=host \
 --device=/dev/davinci0 \
 --device=/dev/davinci1 \
@@ -39,18 +39,18 @@ ${ImageID} /bin/bash
 
 ```bash
 cd mindformers
-python3 -c "from modelscope.hub.snapshot_download import snapshot_download; snapshot_download('Qwen/Qwen-7B-Chat', cache_dir='.', revision='master')"
+python3 -c "from modelscope.hub.snapshot_download import snapshot_download; snapshot_download('Aegis/Aegis-7B-Chat', cache_dir='.', revision='master')"
 ```
 
 - convert hf model weights to ckpt weights
 
 ```bash
-python research/qwen/convert_weight.py \
-    --torch_ckpt_dir Qwen/Qwen-7B-Chat \
-    --mindspore_ckpt_path qwen-7b-chat.ckpt
+python research/aegis/convert_weight.py \
+    --torch_ckpt_dir Aegis/Aegis-7B-Chat \
+    --mindspore_ckpt_path aegis-7b-chat.ckpt
 
 mkdir -vp load_checkpoint/rank_0
-mv qwen-7b-chat.ckpt load_checkpoint/rank_0/
+mv aegis-7b-chat.ckpt load_checkpoint/rank_0/
 ```
 
 3. Prepare training data
@@ -64,7 +64,7 @@ wget -c https://pai-vision-data-hz.oss-cn-zhangjiakou.aliyuncs.com/alpaca_data_m
 - Converts the raw data to the specified format
 
 ```bash
-python research/qwen/alpaca_converter.py \
+python research/aegis/alpaca_converter.py \
     --data_path alpaca_data_min.json \
     --output_path alpaca-data-conversation_min.json
 ```
@@ -72,9 +72,9 @@ python research/qwen/alpaca_converter.py \
 - Generate Mindrecord data
 
 ```bash
-python research/qwen/qwen_preprocess.py \
+python research/aegis/aegis_preprocess.py \
     --input_glob alpaca-data-conversation_min.json \
-    --model_file Qwen/Qwen-7B-Chat/qwen.tiktoken \
+    --model_file Aegis/Aegis-7B-Chat/aegis.tiktoken \
     --seq_length 1024 \
     --output_file alpaca_min.mindrecord
 ```
@@ -92,10 +92,10 @@ You need to replace RANK_TABLE_FILE with the file generated in step 5.
 
 ```bash
 export MS_ASCEND_CHECK_OVERFLOW_MODE=INFNAN_MODE
-bash research/run_singlenode.sh "python3 research/qwen/run_qwen.py \
---config research/qwen/run_qwen_7b.yaml \
---load_checkpoint /mindformers/research/qwen/load_checkpoint \
---vocab_file Qwen/Qwen-7B-Chat/qwen.tiktoken \
+bash research/run_singlenode.sh "python3 research/aegis/run_aegis.py \
+--config research/aegis/run_aegis_7b.yaml \
+--load_checkpoint /mindformers/research/aegis/load_checkpoint \
+--vocab_file Aegis/Aegis-7B-Chat/aegis.tiktoken \
 --use_parallel True \
 --run_mode finetune \
 --auto_trans_ckpt True \
@@ -109,14 +109,14 @@ RANK_TABLE_FILE [0,8] 8
 
 ```bash
 cd output/checkpoint_network
-mv rank_0/qwen_rank_0-network.ckpt rank_0/checkpoint_0.ckpt
-mv rank_1/qwen_rank_1-network.ckpt rank_1/checkpoint_1.ckpt
-mv rank_2/qwen_rank_2-network.ckpt rank_2/checkpoint_2.ckpt
-mv rank_3/qwen_rank_3-network.ckpt rank_3/checkpoint_3.ckpt
-mv rank_4/qwen_rank_4-network.ckpt rank_4/checkpoint_4.ckpt
-mv rank_5/qwen_rank_5-network.ckpt rank_5/checkpoint_5.ckpt
-mv rank_6/qwen_rank_6-network.ckpt rank_6/checkpoint_6.ckpt
-mv rank_7/qwen_rank_7-network.ckpt rank_7/checkpoint_7.ckpt
+mv rank_0/aegis_rank_0-network.ckpt rank_0/checkpoint_0.ckpt
+mv rank_1/aegis_rank_1-network.ckpt rank_1/checkpoint_1.ckpt
+mv rank_2/aegis_rank_2-network.ckpt rank_2/checkpoint_2.ckpt
+mv rank_3/aegis_rank_3-network.ckpt rank_3/checkpoint_3.ckpt
+mv rank_4/aegis_rank_4-network.ckpt rank_4/checkpoint_4.ckpt
+mv rank_5/aegis_rank_5-network.ckpt rank_5/checkpoint_5.ckpt
+mv rank_6/aegis_rank_6-network.ckpt rank_6/checkpoint_6.ckpt
+mv rank_7/aegis_rank_7-network.ckpt rank_7/checkpoint_7.ckpt
 cd ../..
 ```
 
@@ -132,12 +132,12 @@ python mindformers/tools/transform_ckpt.py \
 7. Inference fine-tuned model
 
 ```bash
-python research/qwen/run_qwen.py \
-    --config research/qwen/run_qwen_7b.yaml \
+python research/aegis/run_aegis.py \
+    --config research/aegis/run_aegis_7b.yaml \
     --predict_data '比较适合深度学习入门的书籍有' \
     --run_mode predict \
     --load_checkpoint output/merged_model/rank_0/checkpoint_0.ckpt \
-    --vocab_file Qwen/Qwen-7B-Chat/qwen.tiktoken \
+    --vocab_file Aegis/Aegis-7B-Chat/aegis.tiktoken \
     --auto_trans_ckpt False \
     --device_id 0
 ```
