@@ -1,0 +1,21 @@
+services:
+  mr-aegis-brain:
+    image: ghcr.io/official-knightly/mr-aegis:latest
+    container_name: mr-aegis-brain
+    restart: unless-stopped
+    ports:
+      - "${AEGIS_PORT:-8000}:8000"
+    environment:
+      AEGIS_CHECKPOINT_PATH: ${AEGIS_CHECKPOINT_PATH:-Aegis/Aegis-7B-Chat}
+      AEGIS_SERVER_HOST: 0.0.0.0
+      AEGIS_SERVER_PORT: 8000
+      AEGIS_CPU_ONLY: ${AEGIS_CPU_ONLY:-1}
+      AEGIS_API_AUTH: ${AEGIS_API_AUTH:-}
+    volumes:
+      - aegis-model-cache:/root/.cache/huggingface
+      - aegis-models:/models
+    init: true
+
+volumes:
+  aegis-model-cache:
+  aegis-models:
