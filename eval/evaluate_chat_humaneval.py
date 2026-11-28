@@ -62,7 +62,7 @@ if __name__ == "__main__":
         "--checkpoint-path",
         type=Path,
         help="Checkpoint path",
-        default="Qwen/Qwen-7B-Chat",
+        default="Aegis/Aegis-7B-Chat",
     )
     parser.add_argument(
         "-f",

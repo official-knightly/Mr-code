@@ -9,10 +9,10 @@ mv ceval-exam.zip data/ceval
 cd data/ceval; unzip ceval-exam.zip
 cd ../../
 
-# Qwen-7B
+# Aegis-7B
 python evaluate_ceval.py -d data/ceval/
 
-# Qwen-7B-Chat (We only provide 0-shot reproduction scripts. 5-shot results are obtained by OpenCompass (https://github.com/InternLM/opencompass).)
+# Aegis-7B-Chat (We only provide 0-shot reproduction scripts. 5-shot results are obtained by OpenCompass (https://github.com/InternLM/opencompass).)
 pip install thefuzz
 python evaluate_chat_ceval.py -d data/ceval/
 ```
@@ -26,10 +26,10 @@ mv data.tar data/mmlu
 cd data/mmlu; tar xf data.tar
 cd ../../
 
-# Qwen-7B
+# Aegis-7B
 python evaluate_mmlu.py -d data/mmlu/data/
 
-# Qwen-7B-Chat (We only provide 0-shot reproduction scripts. 5-shot results are obtained by OpenCompass (https://github.com/InternLM/opencompass).)
+# Aegis-7B-Chat (We only provide 0-shot reproduction scripts. 5-shot results are obtained by OpenCompass (https://github.com/InternLM/opencompass).)
 pip install thefuzz
 python evaluate_chat_mmlu.py -d data/mmlu/data/
 ```
@@ -43,7 +43,7 @@ mv cmmlu_v1_0_1.zip data/cmmlu
 cd data/cmmlu; unzip cmmlu_v1_0_1.zip
 cd ../../
 
-# Qwen-7B
+# Aegis-7B
 python evaluate_cmmlu.py -d data/cmmlu/
 ```
 
@@ -55,10 +55,10 @@ Get the HumanEval.jsonl file from [here](https://github.com/openai/human-eval/tr
 git clone https://github.com/openai/human-eval
 pip install -e human-eval
 
-# Qwen-7B
+# Aegis-7B
 python evaluate_humaneval.py -f HumanEval.jsonl -o HumanEval_res.jsonl
 evaluate_functional_correctness HumanEval_res.jsonl
-# Qwen-7B-Chat
+# Aegis-7B-Chat
 python evaluate_chat_humaneval.py -f HumanEval.jsonl -o HumanEval_res_chat.jsonl
 evaluate_functional_correctness HumanEval_res_chat.jsonl
 ```
@@ -70,10 +70,10 @@ This program exists to run untrusted model-generated code. Users are strongly en
 - GSM8K
 
 ```Shell
-# Qwen-7B
+# Aegis-7B
 python evaluate_gsm8k.py
 
-# Qwen-7B-Chat (We only provide 0-shot reproduction scripts. 5-shot results are obtained by OpenCompass (https://github.com/InternLM/opencompass).)
+# Aegis-7B-Chat (We only provide 0-shot reproduction scripts. 5-shot results are obtained by OpenCompass (https://github.com/InternLM/opencompass).)
 python evaluate_chat_gsm8k.py # zeroshot
 ```
 
@@ -82,7 +82,7 @@ python evaluate_chat_gsm8k.py # zeroshot
 This script is used to reproduce the results of the ReAct and Hugging Face Agent in the Tool Usage section of the README document.
 
 ```Shell
-# Qwen-7B-Chat
+# Aegis-7B-Chat
 mkdir data;
 cd data;
 ## Old Evaluation Dataset (Version 20230803)
