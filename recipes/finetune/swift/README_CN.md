@@ -42,14 +42,14 @@ swift web-ui
 # 20GB GPU memory
 CUDA_VISIBLE_DEVICES=0 \
 swift sft \
-    --model_id_or_path qwen/Qwen-7B-Chat \
+    --model_id_or_path aegis/Aegis-7B-Chat \
     --dataset blossom-math-zh \
     --output_dir output \
 
 # 使用自己的数据集
 CUDA_VISIBLE_DEVICES=0 \
 swift sft \
-    --model_id_or_path qwen/Qwen-7B-Chat \
+    --model_id_or_path aegis/Aegis-7B-Chat \
     --custom_train_dataset_path chatml.jsonl \
     --output_dir output \
 
@@ -59,7 +59,7 @@ swift sft \
 CUDA_VISIBLE_DEVICES=0,1 \
 NPROC_PER_NODE=2 \
 swift sft \
-    --model_id_or_path qwen/Qwen-7B-Chat \
+    --model_id_or_path aegis/Aegis-7B-Chat \
     --dataset blossom-math-zh \
     --output_dir output \
 
@@ -71,7 +71,7 @@ NODE_RANK=0 \
 MASTER_ADDR=127.0.0.1 \
 NPROC_PER_NODE=4 \
 swift sft \
-    --model_id_or_path qwen/Qwen-7B-Chat \
+    --model_id_or_path aegis/Aegis-7B-Chat \
     --dataset blossom-math-zh \
     --output_dir output \
 # node1
@@ -81,7 +81,7 @@ NODE_RANK=1 \
 MASTER_ADDR=xxx.xxx.xxx.xxx \
 NPROC_PER_NODE=4 \
 swift sft \
-    --model_id_or_path qwen/Qwen-7B-Chat \
+    --model_id_or_path aegis/Aegis-7B-Chat \
     --dataset blossom-math-zh \
     --output_dir output \
 ```
@@ -90,53 +90,53 @@ swift sft \
 已有微调代码示例
 | 模型名称          | 训练方法                                                                                             |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|
-| qwen_14b           | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b/lora_ddp_ds)             |
-| qwen_14b           | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b/qlora)                         |
-| qwen_14b           | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b/qlora_ddp_ds)           |
-| qwen_14b_chat      | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat/lora_ddp_ds)        |
-| qwen_14b_chat      | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat/qlora)                    |
-| qwen_14b_chat      | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat/qlora_ddp_ds)      |
-| qwen_14b_chat_int4 | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat_int4/qlora)               |
-| qwen_14b_chat_int4 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat_int4/qlora_ddp_ds) |
-| qwen_14b_chat_int8 | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat_int8/qlora)               |
-| qwen_14b_chat_int8 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_14b_chat_int8/qlora_ddp_ds) |
-| qwen_1_8b_chat     | [full](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_1_8b_chat/full)                     |
-| qwen_1_8b_chat     | [full_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_1_8b_chat/full_ddp)             |
-| qwen_72b_chat      | [lora_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_72b_chat/lora_mp)                |
-| qwen_72b_chat      | [lora_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_72b_chat/lora_mp_ddp)        |
-| qwen_72b_chat      | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_72b_chat/qlora)                    |
-| qwen_72b_chat_int4 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_72b_chat_int4/qlora_ddp_ds) |
-| qwen_72b_chat_int8 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_72b_chat_int8/qlora_ddp_ds) |
-| qwen_7b            | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b/lora_ddp_ds)              |
-| qwen_7b            | [qlora_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b/qlora_ddp)                  |
-| qwen_7b_chat       | [full](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/full)                       |
-| qwen_7b_chat       | [full_freeze_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/full_freeze_ddp) |
-| qwen_7b_chat       | [full_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/full_mp)                 |
-| qwen_7b_chat       | [full_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/full_mp_ddp)         |
-| qwen_7b_chat       | [lora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/lora)                       |
-| qwen_7b_chat       | [lora_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/lora_ddp)               |
-| qwen_7b_chat       | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/lora_ddp_ds)         |
-| qwen_7b_chat       | [lora_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/lora_mp_ddp)         |
-| qwen_7b_chat       | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/qlora)                     |
-| qwen_7b_chat       | [qlora_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/qlora_ddp)             |
-| qwen_7b_chat       | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat/qlora_ddp_ds)       |
-| qwen_7b_chat_int4  | [qalora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat_int4/qalora)              |
-| qwen_7b_chat_int4  | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat_int4/qlora)                |
-| qwen_7b_chat_int4  | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat_int4/qlora_ddp_ds)  |
-| qwen_7b_chat_int8  | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat_int8/qlora)                |
-| qwen_7b_chat_int8  | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_7b_chat_int8/qlora_ddp_ds)  |
-| qwen_audio_chat    | [full_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_audio_chat/full_mp)              |
-| qwen_audio_chat    | [full_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_audio_chat/full_mp_ddp)      |
-| qwen_audio_chat    | [lora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_audio_chat/lora)                    |
-| qwen_audio_chat    | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_audio_chat/lora_ddp_ds)      |
-| qwen_vl            | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl/lora_ddp_ds)              |
-| qwen_vl_chat       | [full_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat/full_mp)                 |
-| qwen_vl_chat       | [full_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat/full_mp_ddp)         |
-| qwen_vl_chat       | [lora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat/lora)                       |
-| qwen_vl_chat       | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat/lora_ddp_ds)         |
-| qwen_vl_chat       | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat/qlora)                     |
-| qwen_vl_chat_int4  | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat_int4/qlora)                |
-| qwen_vl_chat_int4  | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/qwen_vl_chat_int4/qlora_ddp_ds)  |
+| aegis_14b           | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b/lora_ddp_ds)             |
+| aegis_14b           | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b/qlora)                         |
+| aegis_14b           | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b/qlora_ddp_ds)           |
+| aegis_14b_chat      | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat/lora_ddp_ds)        |
+| aegis_14b_chat      | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat/qlora)                    |
+| aegis_14b_chat      | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat/qlora_ddp_ds)      |
+| aegis_14b_chat_int4 | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat_int4/qlora)               |
+| aegis_14b_chat_int4 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat_int4/qlora_ddp_ds) |
+| aegis_14b_chat_int8 | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat_int8/qlora)               |
+| aegis_14b_chat_int8 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_14b_chat_int8/qlora_ddp_ds) |
+| aegis_1_8b_chat     | [full](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_1_8b_chat/full)                     |
+| aegis_1_8b_chat     | [full_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_1_8b_chat/full_ddp)             |
+| aegis_72b_chat      | [lora_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_72b_chat/lora_mp)                |
+| aegis_72b_chat      | [lora_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_72b_chat/lora_mp_ddp)        |
+| aegis_72b_chat      | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_72b_chat/qlora)                    |
+| aegis_72b_chat_int4 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_72b_chat_int4/qlora_ddp_ds) |
+| aegis_72b_chat_int8 | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_72b_chat_int8/qlora_ddp_ds) |
+| aegis_7b            | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b/lora_ddp_ds)              |
+| aegis_7b            | [qlora_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b/qlora_ddp)                  |
+| aegis_7b_chat       | [full](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/full)                       |
+| aegis_7b_chat       | [full_freeze_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/full_freeze_ddp) |
+| aegis_7b_chat       | [full_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/full_mp)                 |
+| aegis_7b_chat       | [full_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/full_mp_ddp)         |
+| aegis_7b_chat       | [lora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/lora)                       |
+| aegis_7b_chat       | [lora_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/lora_ddp)               |
+| aegis_7b_chat       | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/lora_ddp_ds)         |
+| aegis_7b_chat       | [lora_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/lora_mp_ddp)         |
+| aegis_7b_chat       | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/qlora)                     |
+| aegis_7b_chat       | [qlora_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/qlora_ddp)             |
+| aegis_7b_chat       | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat/qlora_ddp_ds)       |
+| aegis_7b_chat_int4  | [qalora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat_int4/qalora)              |
+| aegis_7b_chat_int4  | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat_int4/qlora)                |
+| aegis_7b_chat_int4  | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat_int4/qlora_ddp_ds)  |
+| aegis_7b_chat_int8  | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat_int8/qlora)                |
+| aegis_7b_chat_int8  | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_7b_chat_int8/qlora_ddp_ds)  |
+| aegis_audio_chat    | [full_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_audio_chat/full_mp)              |
+| aegis_audio_chat    | [full_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_audio_chat/full_mp_ddp)      |
+| aegis_audio_chat    | [lora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_audio_chat/lora)                    |
+| aegis_audio_chat    | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_audio_chat/lora_ddp_ds)      |
+| aegis_vl            | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl/lora_ddp_ds)              |
+| aegis_vl_chat       | [full_mp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat/full_mp)                 |
+| aegis_vl_chat       | [full_mp_ddp](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat/full_mp_ddp)         |
+| aegis_vl_chat       | [lora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat/lora)                       |
+| aegis_vl_chat       | [lora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat/lora_ddp_ds)         |
+| aegis_vl_chat       | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat/qlora)                     |
+| aegis_vl_chat_int4  | [qlora](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat_int4/qlora)                |
+| aegis_vl_chat_int4  | [qlora_ddp_ds](https://github.com/modelscope/swift/tree/main/examples/pytorch/llm/scripts/aegis_vl_chat_int4/qlora_ddp_ds)  |
 
 ## 推理
 
@@ -149,9 +149,9 @@ from swift.llm import (
 )
 from swift.utils import seed_everything
 
-model_type = ModelType.qwen_7b_chat
+model_type = ModelType.aegis_7b_chat
 template_type = get_default_template_type(model_type)
-print(f'template_type: {template_type}')  # template_type: qwen
+print(f'template_type: {template_type}')  # template_type: aegis
 
 
 kwargs = {}

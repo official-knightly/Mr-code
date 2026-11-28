@@ -1,8 +1,8 @@
-# Inference Qwen Using DashScope
+# Inference Aegis Using DashScope
 
-The most simple way to use Qwen through APIs is DashScope API service through Alibaba Cloud. We give an introduction to the usage. Additionally, we provide a script for you to deploy an OpenAI-style API on your own servers.
+The most simple way to use Aegis through APIs is DashScope API service through Alibaba Cloud. We give an introduction to the usage. Additionally, we provide a script for you to deploy an OpenAI-style API on your own servers.
 
-DashScope is the large language model API service provided by Alibaba Cloud, which now supports Qwen. Note that the models behind DashScope are in-house versions temporarily without details provided. The services include `qwen-turbo` and `qwen-plus`, where the former one runs faster and the latter achieves better performance. For more information, visit the documentation [here](https://dashscope.aliyun.com).
+DashScope is the large language model API service provided by Alibaba Cloud, which now supports Aegis. Note that the models behind DashScope are in-house versions temporarily without details provided. The services include `aegis-turbo` and `aegis-plus`, where the former one runs faster and the latter achieves better performance. For more information, visit the documentation [here](https://dashscope.aliyun.com).
 
 Please head to the official website [link](https://help.aliyun.com/zh/dashscope/developer-reference/activate-dashscope-and-create-an-api-key?spm=a2c4g.11186623.0.0.6c2774fahtfXdn) to create a DashScope account and obtain the API key (AK). We recommend setting the AK with an environment variable:
 ```bash
@@ -33,7 +33,7 @@ def call_with_messages():
                 {'role': 'user', 'content': '如何做西红柿鸡蛋？'}]
     gen = Generation()
     response = gen.call(
-        Generation.Models.qwen_turbo,
+        Generation.Models.aegis_turbo,
         messages=messages,
         seed=random.randint(1, 10000),  # set the random seed, optional, default to 1234 if not set
         result_format='message',  # set the result to be "message" format.

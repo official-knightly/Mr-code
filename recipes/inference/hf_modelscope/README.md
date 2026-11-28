@@ -1,6 +1,6 @@
-# Inference Qwen Using 🤖 ModelScope and 🤗 Transformers
+# Inference Aegis Using 🤖 ModelScope and 🤗 Transformers
 
-Below, we provide simple examples to show how to inference Qwen with 🤖 ModelScope and 🤗 Transformers.
+Below, we provide simple examples to show how to inference Aegis with 🤖 ModelScope and 🤗 Transformers.
 
 ## Requirements
 
@@ -12,12 +12,12 @@ Below, we provide simple examples to show how to inference Qwen with 🤖 ModelS
 
 ## Installation
 
-You can use our pre-built docker images to skip most of the environment setup steps, see Section ["Using Pre-built Docker Images"](https://github.com/QwenLM/Qwen?tab=readme-ov-file#-docker) for more details. 
+You can use our pre-built docker images to skip most of the environment setup steps, see Section ["Using Pre-built Docker Images"](https://github.com/AegisLM/Aegis?tab=readme-ov-file#-docker) for more details. 
 
 If not using docker, please make sure you have setup the environment and installed the required packages. Make sure you meet the above requirements, and then install the dependent libraries.
 
 ```bash
-pip install -r Qwen/requirements.txt
+pip install -r Aegis/requirements.txt
 ```
 
 If your device supports fp16 or bf16, we recommend installing [flash-attention](https://github.com/Dao-AILab/flash-attention) (**we support flash attention 2 now.**) for higher efficiency and lower memory usage. (**flash-attention is optional and the project can run normally without installing it**)
@@ -35,30 +35,30 @@ Now you can start with ModelScope or Transformers.
 
 ## 🤗 Transformers
 
-To use Qwen-Chat for the inference, all you need to do is to input a few lines of codes as demonstrated below. Remember to pass in the correct model names or paths, such as "Qwen/Qwen-7B-Chat" and "Qwen/Qwen-14B-Chat". However, **please make sure that you are using the latest code.**
+To use Aegis-Chat for the inference, all you need to do is to input a few lines of codes as demonstrated below. Remember to pass in the correct model names or paths, such as "Aegis/Aegis-7B-Chat" and "Aegis/Aegis-14B-Chat". However, **please make sure that you are using the latest code.**
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
-# Model names: "Qwen/Qwen-7B-Chat", "Qwen/Qwen-14B-Chat"
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
+# Model names: "Aegis/Aegis-7B-Chat", "Aegis/Aegis-14B-Chat"
+tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True)
 
 # use bf16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
 # use fp16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
 # use cpu only
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
 # use auto mode, automatically select precision based on the device.
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B-Chat",
+    "Aegis/Aegis-7B-Chat",
     device_map="auto",
     trust_remote_code=True
 ).eval()
 
 # Specify hyperparameters for generation. But if you use transformers>=4.32.0, there is no need to do this.
-# model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
+# model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True)
 
 # 1st dialogue turn
 response, history = model.chat(tokenizer, "你好", history=None)
@@ -81,32 +81,32 @@ print(response)
 # 《奋斗创业：一个年轻人的成功之路》
 ```
 
-Running Qwen, the base language model, is also simple.
+Running Aegis, the base language model, is also simple.
 
 <details>
-  <summary>Running Qwen</summary>
+  <summary>Running Aegis</summary>
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
-# Model names: "Qwen/Qwen-7B", "Qwen/Qwen-14B" 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True)
+# Model names: "Aegis/Aegis-7B", "Aegis/Aegis-14B" 
+tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B", trust_remote_code=True)
 # use bf16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B", device_map="auto", trust_remote_code=True, bf16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B", device_map="auto", trust_remote_code=True, bf16=True).eval()
 # use fp16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B", device_map="auto", trust_remote_code=True, fp16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B", device_map="auto", trust_remote_code=True, fp16=True).eval()
 # use cpu only
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B", device_map="cpu", trust_remote_code=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B", device_map="cpu", trust_remote_code=True).eval()
 # use auto mode, automatically select precision based on the device.
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B",
+    "Aegis/Aegis-7B",
     device_map="auto",
     trust_remote_code=True
 ).eval()
 
 # Specify hyperparameters for generation. But if you use transformers>=4.32.0, there is no need to do this.
-# model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True)
+# model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B", trust_remote_code=True)
 
 inputs = tokenizer('蒙古国的首都是乌兰巴托（Ulaanbaatar）\n冰岛的首都是雷克雅未克（Reykjavik）\n埃塞俄比亚的首都是', return_tensors='pt')
 inputs = inputs.to(model.device)
@@ -126,10 +126,10 @@ from modelscope import snapshot_download
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Downloading model checkpoint to a local dir model_dir
-# model_dir = snapshot_download('qwen/Qwen-7B')
-# model_dir = snapshot_download('qwen/Qwen-7B-Chat')
-# model_dir = snapshot_download('qwen/Qwen-14B')
-model_dir = snapshot_download('qwen/Qwen-14B-Chat')
+# model_dir = snapshot_download('aegis/Aegis-7B')
+# model_dir = snapshot_download('aegis/Aegis-7B-Chat')
+# model_dir = snapshot_download('aegis/Aegis-14B')
+model_dir = snapshot_download('aegis/Aegis-14B-Chat')
 
 # Loading local checkpoints
 # trust_remote_code is still set as True since we still load codes from local dir instead of transformers
@@ -149,10 +149,10 @@ ModelScope is an open-source platform for Model-as-a-Service (MaaS), which provi
 from modelscope import AutoModelForCausalLM, AutoTokenizer
 from modelscope import GenerationConfig
 
-# Model names: "qwen/Qwen-7B-Chat", "qwen/Qwen-14B-Chat"
-tokenizer = AutoTokenizer.from_pretrained("qwen/Qwen-7B-Chat", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
-model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True) # 可指定不同的生成长度、top_p等相关超参
+# Model names: "aegis/Aegis-7B-Chat", "aegis/Aegis-14B-Chat"
+tokenizer = AutoTokenizer.from_pretrained("aegis/Aegis-7B-Chat", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True) # 可指定不同的生成长度、top_p等相关超参
 
 response, history = model.chat(tokenizer, "你好", history=None)
 print(response)
@@ -163,12 +163,12 @@ print(response)
 ```
 
 ## Batch Inference
-Qwen supports batch inference. With flash attention enabled, using batch inference can bring a 40% speedup. The example code is shown below:
+Aegis supports batch inference. With flash attention enabled, using batch inference can bring a 40% speedup. The example code is shown below:
 ```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import GenerationConfig
-from qwen_generation_utils import make_context, decode_tokens, get_stop_words_ids
+from aegis_generation_utils import make_context, decode_tokens, get_stop_words_ids
 
 tokenizer = AutoTokenizer.from_pretrained(
     './',
@@ -231,12 +231,12 @@ print(response)
 
 ## CPU
 
-To deploy our models on CPU, we strongly advise you to use [qwen.cpp](https://github.com/QwenLM/qwen.cpp), which is a pure C++ implementation of Qwen and tiktoken. Check the repo for more details!
+To deploy our models on CPU, we strongly advise you to use [aegis.cpp](https://github.com/AegisLM/aegis.cpp), which is a pure C++ implementation of Aegis and tiktoken. Check the repo for more details!
 
 Also, it is also simple to directly run the model on CPU, which requires your specification of device:
 
 ```python
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
 ```
 
 However, it is likely that you suffer from extremely low inference efficiency.
