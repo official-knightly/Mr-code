@@ -1,14 +1,14 @@
 #!/bin/bash
 
-IMAGE_NAME=qwenllm/qwen-mindspore:v23.0.RC3
-CONTAINER_NAME=qwen-mindspore
+IMAGE_NAME=aegisllm/aegis-mindspore:v23.0.RC3
+CONTAINER_NAME=aegis-mindspore
 CHECKPOINT_PATH='NOT_SET'
 
-DOCKER_CHECKPOINT_PATH=/data/qwen/models/Qwen-7B-Chat
+DOCKER_CHECKPOINT_PATH=/data/aegis/models/Aegis-7B-Chat
 
 function usage() {
     echo '
-Usage: bash ascend-support/docker_qwen.sh [-i IMAGE_NAME] -c [/path/to/Qwen-7B-Chat] [-n CONTAINER_NAME]
+Usage: bash ascend-support/docker_aegis.sh [-i IMAGE_NAME] -c [/path/to/Aegis-7B-Chat] [-n CONTAINER_NAME]
 '
 }
 

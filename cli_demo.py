@@ -16,15 +16,15 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 from transformers.trainer_utils import set_seed
 
-DEFAULT_CKPT_PATH = 'Qwen/Qwen-7B-Chat'
+DEFAULT_CKPT_PATH = 'Aegis/Aegis-7B-Chat'
 
 _WELCOME_MSG = '''\
-Welcome to use Qwen-Chat model, type text to start chat, type :h to show command help.
-(欢迎使用 Qwen-Chat 模型，输入内容即可进行对话，:h 显示命令帮助。)
+Welcome to use Aegis-Chat model, type text to start chat, type :h to show command help.
+(欢迎使用 Aegis-Chat 模型，输入内容即可进行对话，:h 显示命令帮助。)
 
-Note: This demo is governed by the original license of Qwen.
+Note: This demo is governed by the original license of Aegis.
 We strongly advise users not to knowingly generate or allow others to knowingly generate harmful content, including hate speech, violence, pornography, deception, etc.
-(注：本演示受Qwen的许可协议限制。我们强烈建议，用户不应传播及不应允许他人传播以下内容，包括但不限于仇恨言论、暴力、色情、欺诈相关的有害信息。)
+(注：本演示受Aegis的许可协议限制。我们强烈建议，用户不应传播及不应允许他人传播以下内容，包括但不限于仇恨言论、暴力、色情、欺诈相关的有害信息。)
 '''
 _HELP_MSG = '''\
 Commands:
@@ -198,7 +198,7 @@ def main():
             for response in model.chat_stream(tokenizer, query, history=history, generation_config=config):
                 _clear_screen()
                 print(f"\nUser: {query}")
-                print(f"\nQwen-Chat: {response}")
+                print(f"\nAegis-Chat: {response}")
         except KeyboardInterrupt:
             print('[WARNING] Generation interrupted')
             continue

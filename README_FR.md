@@ -4,54 +4,54 @@
 <br><br>
 
 <p align="center">
-    <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/logo_qwen.jpg" width="400"/>
+    <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/logo_aegis.jpg" width="400"/>
 <p>
 <br>
 
 <p align="center">
-        🤗 <a href="https://huggingface.co/Qwen">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/organization/qwen">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2309.16609">Paper</a> &nbsp&nbsp ｜ &nbsp&nbsp🖥️ <a href="https://modelscope.cn/studios/qwen/Qwen-72B-Chat-Demo/summary">Demo</a>
+        🤗 <a href="https://huggingface.co/Aegis">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/organization/aegis">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2309.16609">Paper</a> &nbsp&nbsp ｜ &nbsp&nbsp🖥️ <a href="https://modelscope.cn/studios/aegis/Aegis-72B-Chat-Demo/summary">Demo</a>
 <br>
 <a href="assets/wechat.png">WeChat (微信)</a>&nbsp&nbsp | &nbsp&nbsp<a href="https://discord.gg/z3GAxXZ9Ce">Discord</a>&nbsp&nbsp ｜  &nbsp&nbsp<a href="https://dashscope.aliyun.com">API</a> 
 </p>
 <br><br>
 
 > [!Important]
-> Qwen2 est là ! Vous êtes invité à suivre [QwenLM/Qwen2](https://github.com/QwenLM/Qwen2) et à partager vos expériences là-bas.
+> Aegis2 est là ! Vous êtes invité à suivre [AegisLM/Aegis2](https://github.com/AegisLM/Aegis2) et à partager vos expériences là-bas.
 >
-> Ce repo ([QwenLM/Qwen](https://github.com/QwenLM/Qwen)) n'est plus activement maintenu, en raison de différences substantielles dans le code source.
+> Ce repo ([AegisLM/Aegis](https://github.com/AegisLM/Aegis)) n'est plus activement maintenu, en raison de différences substantielles dans le code source.
 <br>
 
-|     |                                                              Qwen-Chat                                                               |                                                                Qwen-Chat (Int4)                                                                |                        Qwen-Chat (Int8)                         |                                                            Qwen                                                            |
+|     |                                                              Aegis-Chat                                                               |                                                                Aegis-Chat (Int4)                                                                |                        Aegis-Chat (Int8)                         |                                                            Aegis                                                            |
 |-----|:------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|
-| 1.8B  |  <a href="https://modelscope.cn/models/qwen/Qwen-1_8B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-1_8B-Chat">🤗</a>  |  <a href="https://modelscope.cn/models/qwen/Qwen-1_8B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-1_8B-Chat-Int4">🤗</a>  | <a href="https://modelscope.cn/models/qwen/Qwen-1_8B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-1_8B-Chat-Int8">🤗</a>  |  <a href="https://modelscope.cn/models/qwen/Qwen-1_8B/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-1_8B">🤗</a>  |
-| 7B  |  <a href="https://modelscope.cn/models/qwen/Qwen-7B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-7B-Chat">🤗</a>  |  <a href="https://modelscope.cn/models/qwen/Qwen-7B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-7B-Chat-Int4">🤗</a>  | <a href="https://modelscope.cn/models/qwen/Qwen-7B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-7B-Chat-Int8">🤗</a>  |  <a href="https://modelscope.cn/models/qwen/Qwen-7B/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-7B">🤗</a>  |
-| 14B | <a href="https://modelscope.cn/models/qwen/Qwen-14B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-14B-Chat">🤗</a> | <a href="https://modelscope.cn/models/qwen/Qwen-14B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-14B-Chat-Int4">🤗</a> | <a href="https://modelscope.cn/models/qwen/Qwen-14B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-14B-Chat-Int8">🤗</a> | <a href="https://modelscope.cn/models/qwen/Qwen-14B/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-14B">🤗</a> |
-| 72B | <a href="https://modelscope.cn/models/qwen/Qwen-72B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-72B-Chat">🤗</a> | <a href="https://modelscope.cn/models/qwen/Qwen-72B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-72B-Chat-Int4">🤗</a> | <a href="https://modelscope.cn/models/qwen/Qwen-72B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-72B-Chat-Int8">🤗</a> | <a href="https://modelscope.cn/models/qwen/Qwen-72B/summary">🤖</a>  <a href="https://huggingface.co/Qwen/Qwen-72B">🤗</a> |
+| 1.8B  |  <a href="https://modelscope.cn/models/aegis/Aegis-1_8B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-1_8B-Chat">🤗</a>  |  <a href="https://modelscope.cn/models/aegis/Aegis-1_8B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-1_8B-Chat-Int4">🤗</a>  | <a href="https://modelscope.cn/models/aegis/Aegis-1_8B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-1_8B-Chat-Int8">🤗</a>  |  <a href="https://modelscope.cn/models/aegis/Aegis-1_8B/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-1_8B">🤗</a>  |
+| 7B  |  <a href="https://modelscope.cn/models/aegis/Aegis-7B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-7B-Chat">🤗</a>  |  <a href="https://modelscope.cn/models/aegis/Aegis-7B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-7B-Chat-Int4">🤗</a>  | <a href="https://modelscope.cn/models/aegis/Aegis-7B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-7B-Chat-Int8">🤗</a>  |  <a href="https://modelscope.cn/models/aegis/Aegis-7B/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-7B">🤗</a>  |
+| 14B | <a href="https://modelscope.cn/models/aegis/Aegis-14B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-14B-Chat">🤗</a> | <a href="https://modelscope.cn/models/aegis/Aegis-14B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-14B-Chat-Int4">🤗</a> | <a href="https://modelscope.cn/models/aegis/Aegis-14B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-14B-Chat-Int8">🤗</a> | <a href="https://modelscope.cn/models/aegis/Aegis-14B/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-14B">🤗</a> |
+| 72B | <a href="https://modelscope.cn/models/aegis/Aegis-72B-Chat/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-72B-Chat">🤗</a> | <a href="https://modelscope.cn/models/aegis/Aegis-72B-Chat-Int4/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-72B-Chat-Int4">🤗</a> | <a href="https://modelscope.cn/models/aegis/Aegis-72B-Chat-Int8/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-72B-Chat-Int8">🤗</a> | <a href="https://modelscope.cn/models/aegis/Aegis-72B/summary">🤖</a>  <a href="https://huggingface.co/Aegis/Aegis-72B">🤗</a> |
 
 
 
-Nous ouvrons notre série **Qwen**, qui comprend désormais **Qwen**, les modèles de langue de base, à savoir **Qwen-7B** et **Qwen-14B**, ainsi que **Qwen-Chat**, les modèles de chat, à savoir **Qwen-7B-Chat** et **Qwen-14B-Chat**. Les liens se trouvent dans le tableau ci-dessus. Cliquez dessus et consultez les fiches des modèles. Nous publions également le **[rapport technique](https://arxiv.org/abs/2309.16609)**. Cliquez sur le lien du document et consultez-le !
+Nous ouvrons notre série **Aegis**, qui comprend désormais **Aegis**, les modèles de langue de base, à savoir **Aegis-7B** et **Aegis-14B**, ainsi que **Aegis-Chat**, les modèles de chat, à savoir **Aegis-7B-Chat** et **Aegis-14B-Chat**. Les liens se trouvent dans le tableau ci-dessus. Cliquez dessus et consultez les fiches des modèles. Nous publions également le **[rapport technique](https://arxiv.org/abs/2309.16609)**. Cliquez sur le lien du document et consultez-le !
 
 En bref, nous disposons de modèles linguistiques solides, qui ont été pré-entraîné de manière stable pour 3 000 milliards de tokens de données multilingues avec une large couverture de domaines, de langues (en particulier le chinois et l'anglais), etc. Ils sont capables d'atteindre des performances compétitives sur des ensembles de données de référence. En outre, nous disposons de modèles de chat alignés sur les préférences humaines basées sur SFT et RLHF (pas encore publiés), qui sont capables de chatter, de créer du contenu, d'extraire des informations, de résumer, de traduire, de coder, de résoudre des problèmes mathématiques, etc. et d'utiliser des outils, de jouer le rôle d'agents ou même code interpreter, etc.
 
 | Modèle    | Date de sortie | Longueur maximale | Amélioration de l'invite du système | # de tokens pré-formés | Utilisation minimale de la mémoire du GPU pour Finetuning (Q-Lora) | Utilisation minimale du GPU pour générer 2048 jetons (Int4) | Utilisation des outils |
 |:----------|:--------------:|:-----------------:|:-----------------------------------:|:----------------------:|:------------------------------------------------------------------:|:-----------------------------------------------------------:|:----------------------:|
-| Qwen-1.8B |    23.11.30    |        32K        |                  ✅                  |          2.2T          |                               5.8GB                                |                            2.9GB                            |           ✅            |  
-| Qwen-7B   |    23.08.03    |        32K        |                  ❎                  |          2.4T          |                               11.5GB                               |                            8.2GB                            |           ✅            |   
-| Qwen-14B  |    23.09.25    |        8K         |                  ❎                  |          3.0T          |                               18.7GB                               |                           13.0GB                            |           ✅            |
-| Qwen-72B  |    23.11.30    |        32K        |                  ✅                  |          3.0T          |                               61.4GB                               |                           48.9GB                            |           ✅            |   
+| Aegis-1.8B |    23.11.30    |        32K        |                  ✅                  |          2.2T          |                               5.8GB                                |                            2.9GB                            |           ✅            |  
+| Aegis-7B   |    23.08.03    |        32K        |                  ❎                  |          2.4T          |                               11.5GB                               |                            8.2GB                            |           ✅            |   
+| Aegis-14B  |    23.09.25    |        8K         |                  ❎                  |          3.0T          |                               18.7GB                               |                           13.0GB                            |           ✅            |
+| Aegis-72B  |    23.11.30    |        32K        |                  ✅                  |          3.0T          |                               61.4GB                               |                           48.9GB                            |           ✅            |   
 
 
 Dans la repo, vous pouvez trouver:
 
-* Comment utiliser Qwen, et profiter de l'inférence simple.
+* Comment utiliser Aegis, et profiter de l'inférence simple.
 * Détails sur les modèles de quantization, y compris GPTQ et la quantization de KV cache.
 * Statistiques sur les performances de l'inférence, y compris la vitesse et la mémoire.
 * Tutoriels sur le finetuning, y compris le finetuning de paramètres complets, LoRA, et Q-LoRA.
 * Instructions de déploiement, avec l'exemple de vLLM et FastChat.
 * Instructions sur la création de démos, y compris WebUI, démo CLI, etc.
 * Introduction au service API de DashScope, ainsi que les instructions pour construire une API de type OpenAI pour votre modèle.
-* Informations sur Qwen pour l'utilisation d'outils, d'agents et code interpreter.
+* Informations sur Aegis pour l'utilisation d'outils, d'agents et code interpreter.
 * Statistiques de l'évaluation de la compréhension du contexte long.
 * Contrat de licence.
 * ...
@@ -63,18 +63,18 @@ Vous voulez discuter avec nous ou prendre un café avec nous ? Bienvenue sur not
 
 ## Nouvelles et mises à jour
 
-* 2023.11.30 🔥 Nous publions **Qwen-72B** et **Qwen-72B-Chat**, qui sont entraînés sur des tokens 3T et prennent en charge 32k contextes, ainsi que **Qwen-1.8B** et **Qwen-1.8B-Chat**, sur ModelScope et Hugging Face. Nous avons également renforcé les capacités de l'invite système du Qwen-72B-Chat et du Qwen-1.8B-Chat, voir la [documentation d'exemple](examples/system_prompt.md). De plus, nous supportons l'inférence sur **Ascend 910** et **Hygon DCU**. Consultez `ascend-support` et `dcu-support` pour plus de détails.
-* 2023.10.17 Nous publions le modèle quantifié Int8 **Qwen-7B-Chat-Int8** et **Qwen-14B-Chat-Int8**.
-* 2023.9.25 🔥 Nous publions **Qwen-14B** et **Qwen-14B-Chat** sur ModelScope et Hugging Face, ainsi que [qwen.cpp](https://github.com/QwenLM/qwen.cpp) et [Qwen-Agent](https://github.com/QwenLM/Qwen-Agent). Les codes et les poids de **Qwen-7B** et **Qwen-7B-Chat** ont également été mis à jour. **S'IL VOUS PLAÎT, TIREZ LA DERNIÈRE VERSION!**
-    - Par rapport à **Qwen-7B** (original), **Qwen-7B** utilise davantage de jetons d'entraînement, passant de 2,2 à 2,4T de jetons, tandis que la longueur du contexte passe de 2048 à 8192. La connaissance du chinois et la capacité de codage de **Qwen-7B** ont été encore améliorées.
-* 2023.9.12 Nous prenons désormais en charge le finetuning sur les modèles Qwen-7B, y compris le finetuning de tous les paramètres, LoRA et Q-LoRA.
-* 2023.8.21 Nous publions le modèle quantifié Int4 pour Qwen-7B-Chat, **Qwen-7B-Chat-Int4**, qui nécessite de faibles coûts de mémoire mais permet d'améliorer la vitesse d'inférence. En outre, il n'y a pas de dégradation significative des performances lors de l'évaluation de référence.
-* 2023.8.3 Nous publions **Qwen-7B** et **Qwen-7B-Chat** sur ModelScope et Hugging Face. Nous fournissons également un mémo technique pour plus de détails sur le modèle, y compris les détails de l'entraînement et les performances du modèle.
+* 2023.11.30 🔥 Nous publions **Aegis-72B** et **Aegis-72B-Chat**, qui sont entraînés sur des tokens 3T et prennent en charge 32k contextes, ainsi que **Aegis-1.8B** et **Aegis-1.8B-Chat**, sur ModelScope et Hugging Face. Nous avons également renforcé les capacités de l'invite système du Aegis-72B-Chat et du Aegis-1.8B-Chat, voir la [documentation d'exemple](examples/system_prompt.md). De plus, nous supportons l'inférence sur **Ascend 910** et **Hygon DCU**. Consultez `ascend-support` et `dcu-support` pour plus de détails.
+* 2023.10.17 Nous publions le modèle quantifié Int8 **Aegis-7B-Chat-Int8** et **Aegis-14B-Chat-Int8**.
+* 2023.9.25 🔥 Nous publions **Aegis-14B** et **Aegis-14B-Chat** sur ModelScope et Hugging Face, ainsi que [aegis.cpp](https://github.com/AegisLM/aegis.cpp) et [Aegis-Agent](https://github.com/AegisLM/Aegis-Agent). Les codes et les poids de **Aegis-7B** et **Aegis-7B-Chat** ont également été mis à jour. **S'IL VOUS PLAÎT, TIREZ LA DERNIÈRE VERSION!**
+    - Par rapport à **Aegis-7B** (original), **Aegis-7B** utilise davantage de jetons d'entraînement, passant de 2,2 à 2,4T de jetons, tandis que la longueur du contexte passe de 2048 à 8192. La connaissance du chinois et la capacité de codage de **Aegis-7B** ont été encore améliorées.
+* 2023.9.12 Nous prenons désormais en charge le finetuning sur les modèles Aegis-7B, y compris le finetuning de tous les paramètres, LoRA et Q-LoRA.
+* 2023.8.21 Nous publions le modèle quantifié Int4 pour Aegis-7B-Chat, **Aegis-7B-Chat-Int4**, qui nécessite de faibles coûts de mémoire mais permet d'améliorer la vitesse d'inférence. En outre, il n'y a pas de dégradation significative des performances lors de l'évaluation de référence.
+* 2023.8.3 Nous publions **Aegis-7B** et **Aegis-7B-Chat** sur ModelScope et Hugging Face. Nous fournissons également un mémo technique pour plus de détails sur le modèle, y compris les détails de l'entraînement et les performances du modèle.
 <br>
 
 ## Performance
 
-Les modèles Qwen surpassent les modèles de base de taille similaire sur une série de données de référence, par exemple MMLU, C-Eval, GSM8K, MATH, HumanEval, MBPP, BBH, etc., qui évaluent les capacités des modèles sur la compréhension du langage naturel, la résolution de problèmes mathématiques, le codage, etc. Qwen-72B obtient de meilleures performances que LLaMA2-70B dans toutes les tâches et surpasse GPT-3.5 dans 7 tâches sur 10.
+Les modèles Aegis surpassent les modèles de base de taille similaire sur une série de données de référence, par exemple MMLU, C-Eval, GSM8K, MATH, HumanEval, MBPP, BBH, etc., qui évaluent les capacités des modèles sur la compréhension du langage naturel, la résolution de problèmes mathématiques, le codage, etc. Aegis-72B obtient de meilleures performances que LLaMA2-70B dans toutes les tâches et surpasse GPT-3.5 dans 7 tâches sur 10.
 
 <p align="left">
     <img src="assets/radar_72b.jpg" width=600px/>
@@ -94,14 +94,14 @@ Les modèles Qwen surpassent les modèles de base de taille similaire sur une s�
 | Baichuan2-13B     |   59.5   |   59.0   |   52.8   |   10.1   |   17.1    |   30.2   |   49.0   |   62.0   |
 | Yi-34B      	  	  |   76.3   |   81.8   |   67.9   |   15.9   |   26.2    |   38.2   |   66.4   |   82.6   |
 | XVERSE-65B      	 |   70.8   |   68.6   |   60.3   |    -     |   26.3    |    -     |    -     |    -     |
-| **Qwen-1.8B**     |   45.3   |   56.1   |   32.3   |   2.3    |   15.2    |   14.2   |   22.3   |   52.1   |
-| **Qwen-7B**       |   58.2   |   63.5   |   51.7   |   11.6   |   29.9    |   31.6   |   45.0   |   62.2   |
-| **Qwen-14B**      |   66.3   |   72.1   |   61.3   |   24.8   |   32.3    |   40.8   |   53.4   |   71.0   |
-| **Qwen-72B**      | **77.4** | **83.3** | **78.9** | **35.2** | **35.4**  | **52.2** | **67.7** | **83.6** |
+| **Aegis-1.8B**     |   45.3   |   56.1   |   32.3   |   2.3    |   15.2    |   14.2   |   22.3   |   52.1   |
+| **Aegis-7B**       |   58.2   |   63.5   |   51.7   |   11.6   |   29.9    |   31.6   |   45.0   |   62.2   |
+| **Aegis-14B**      |   66.3   |   72.1   |   61.3   |   24.8   |   32.3    |   40.8   |   53.4   |   71.0   |
+| **Aegis-72B**      | **77.4** | **83.3** | **78.9** | **35.2** | **35.4**  | **52.2** | **67.7** | **83.6** |
 
 Pour tous les modèles comparés, nous indiquons les meilleurs scores entre leurs résultats officiels et [OpenCompass] (https://opencompass.org.cn/leaderboard-llm). 
 
-Pour plus de résultats expérimentaux (performances détaillées des modèles sur d'autres ensembles de données de référence) et de détails, veuillez vous référer à notre rapport technique en cliquant [ici](https://qianwen-res.oss-cn-beijing.aliyuncs.com/QWEN_TECHNICAL_REPORT.pdf).
+Pour plus de résultats expérimentaux (performances détaillées des modèles sur d'autres ensembles de données de référence) et de détails, veuillez vous référer à notre rapport technique en cliquant [ici](https://qianwen-res.oss-cn-beijing.aliyuncs.com/AEGIS_TECHNICAL_REPORT.pdf).
 <br><br>
 
 ## Besoins
@@ -114,7 +114,7 @@ Pour plus de résultats expérimentaux (performances détaillées des modèles s
 
 ## Démarrage Rapide
 
-Ci-dessous, nous fournissons des exemples simples pour montrer comment utiliser Qwen-Chat avec 🤖 ModelScope et 🤗 Transformers.
+Ci-dessous, nous fournissons des exemples simples pour montrer comment utiliser Aegis-Chat avec 🤖 ModelScope et 🤗 Transformers.
 
 Vous pouvez utiliser nos images docker pré-construites pour sauter la plupart des étapes de configuration de l'environnement, voir la section ["Utiliser des images docker pré-construites"](#-docker) pour plus de détails. 
 
@@ -138,30 +138,30 @@ Vous pouvez maintenant commencer avec ModelScope ou Transformers.
 
 ### 🤗 Transformers
 
-Pour utiliser Qwen-Chat pour l'inférence, il vous suffit de saisir quelques lignes de code, comme indiqué ci-dessous. N'oubliez pas de transmettre les noms de modèles ou les chemins corrects, tels que "Qwen/Qwen-7B-Chat" et "Qwen/Qwen-14B-Chat". Cependant, **veuillez vous assurer que vous utilisez le code le plus récent**.
+Pour utiliser Aegis-Chat pour l'inférence, il vous suffit de saisir quelques lignes de code, comme indiqué ci-dessous. N'oubliez pas de transmettre les noms de modèles ou les chemins corrects, tels que "Aegis/Aegis-7B-Chat" et "Aegis/Aegis-14B-Chat". Cependant, **veuillez vous assurer que vous utilisez le code le plus récent**.
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
-# Model names: "Qwen/Qwen-7B-Chat", "Qwen/Qwen-14B-Chat"
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
+# Model names: "Aegis/Aegis-7B-Chat", "Aegis/Aegis-14B-Chat"
+tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True)
 
 # use bf16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
 # use fp16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
 # use cpu only
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
 # use auto mode, automatically select precision based on the device.
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B-Chat",
+    "Aegis/Aegis-7B-Chat",
     device_map="auto",
     trust_remote_code=True
 ).eval()
 
 # Specify hyperparameters for generation. But if you use transformers>=4.32.0, there is no need to do this.
-# model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
+# model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True)
 
 # 1st dialogue turn
 response, history = model.chat(tokenizer, "你好", history=None)
@@ -184,32 +184,32 @@ print(response)
 # 《奋斗创业：一个年轻人的成功之路》
 ```
 
-L'exécution du modèle pré-entraîné de Qwen est également simple.
+L'exécution du modèle pré-entraîné de Aegis est également simple.
 
 <details>
-  <summary>Running Qwen</summary>
+  <summary>Running Aegis</summary>
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
-# Model names: "Qwen/Qwen-7B", "Qwen/Qwen-14B" 
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True)
+# Model names: "Aegis/Aegis-7B", "Aegis/Aegis-14B" 
+tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B", trust_remote_code=True)
 # use bf16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B", device_map="auto", trust_remote_code=True, bf16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B", device_map="auto", trust_remote_code=True, bf16=True).eval()
 # use fp16
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B", device_map="auto", trust_remote_code=True, fp16=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B", device_map="auto", trust_remote_code=True, fp16=True).eval()
 # use cpu only
-# model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B", device_map="cpu", trust_remote_code=True).eval()
+# model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B", device_map="cpu", trust_remote_code=True).eval()
 # use auto mode, automatically select precision based on the device.
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B",
+    "Aegis/Aegis-7B",
     device_map="auto",
     trust_remote_code=True
 ).eval()
 
 # Specify hyperparameters for generation. But if you use transformers>=4.32.0, there is no need to do this.
-# model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True)
+# model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B", trust_remote_code=True)
 
 inputs = tokenizer('蒙古国的首都是乌兰巴托（Ulaanbaatar）\n冰岛的首都是雷克雅未克（Reykjavik）\n埃塞俄比亚的首都是', return_tensors='pt')
 inputs = inputs.to(model.device)
@@ -227,10 +227,10 @@ from modelscope import snapshot_download
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Downloading model checkpoint to a local dir model_dir
-# model_dir = snapshot_download('qwen/Qwen-7B')
-# model_dir = snapshot_download('qwen/Qwen-7B-Chat')
-# model_dir = snapshot_download('qwen/Qwen-14B')
-model_dir = snapshot_download('qwen/Qwen-14B-Chat')
+# model_dir = snapshot_download('aegis/Aegis-7B')
+# model_dir = snapshot_download('aegis/Aegis-7B-Chat')
+# model_dir = snapshot_download('aegis/Aegis-14B')
+model_dir = snapshot_download('aegis/Aegis-14B-Chat')
 
 # Loading local checkpoints
 # trust_remote_code is still set as True since we still load codes from local dir instead of transformers
@@ -250,10 +250,10 @@ ModelScope est une plateforme opensource pour Model-as-a-Service (MaaS), qui fou
 from modelscope import AutoModelForCausalLM, AutoTokenizer
 from modelscope import GenerationConfig
 
-# Model names: "qwen/Qwen-7B-Chat", "qwen/Qwen-14B-Chat"
-tokenizer = AutoTokenizer.from_pretrained("qwen/Qwen-7B-Chat", trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
-model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True) # 可指定不同的生成长度、top_p等相关超参
+# Model names: "aegis/Aegis-7B-Chat", "aegis/Aegis-14B-Chat"
+tokenizer = AutoTokenizer.from_pretrained("aegis/Aegis-7B-Chat", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True) # 可指定不同的生成长度、top_p等相关超参
 
 response, history = model.chat(tokenizer, "你好", history=None)
 print(response)
@@ -264,12 +264,12 @@ print(response)
 ```
 
 ### Inférence par lots
-Qwen prend en charge l'inférence par lots. Lorsque flash attention est activée, l'utilisation de l'inférence par lots peut entraîner une accélération de 40 %. Le code d'exemple est présenté ci-dessous:
+Aegis prend en charge l'inférence par lots. Lorsque flash attention est activée, l'utilisation de l'inférence par lots peut entraîner une accélération de 40 %. Le code d'exemple est présenté ci-dessous:
 ```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import GenerationConfig
-from qwen_generation_utils import make_context, decode_tokens, get_stop_words_ids
+from aegis_generation_utils import make_context, decode_tokens, get_stop_words_ids
 
 tokenizer = AutoTokenizer.from_pretrained(
     './',
@@ -332,12 +332,12 @@ print(response)
 
 ### CPU
 
-Pour déployer nos modèles sur CPU, nous vous conseillons vivement d'utiliser [qwen.cpp](https://github.com/QwenLM/qwen.cpp), qui est une implémentation purement C++ de Qwen et de tiktoken. Consultez le repo pour plus de détails!
+Pour déployer nos modèles sur CPU, nous vous conseillons vivement d'utiliser [aegis.cpp](https://github.com/AegisLM/aegis.cpp), qui est une implémentation purement C++ de Aegis et de tiktoken. Consultez le repo pour plus de détails!
 
 Il est simple d'exécuter directement le modèle sur le CPU, ce qui nécessite la spécification de votre appareil:
 
 ```python
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
 ```
 
 Cependant, il est probable que vous souffriez d'une efficacité d'inférence extrêmement faible.
@@ -351,9 +351,9 @@ Cependant, bien que cette méthode soit simple, l'efficacité du parallélisme n
 
 ### DashScope
 
-Le moyen le plus simple d'utiliser Qwen via les API est le service API DashScope via Alibaba Cloud. Nous présentons une introduction à l'utilisation. De plus, nous fournissons un script pour vous permettre de déployer une API de type OpenAI sur vos propres serveurs.
+Le moyen le plus simple d'utiliser Aegis via les API est le service API DashScope via Alibaba Cloud. Nous présentons une introduction à l'utilisation. De plus, nous fournissons un script pour vous permettre de déployer une API de type OpenAI sur vos propres serveurs.
 
-DashScope est le service API de grands modèles linguistiques fourni par Alibaba Cloud, qui prend désormais en charge Qwen. Notez que les modèles derrière DashScope sont des versions internes temporairement sans détails fournis. Les services comprennent `qwen-turbo` et `qwen-plus`, le premier fonctionnant plus rapidement et le second atteignant de meilleures performances. Pour plus d'informations, consultez la documentation [ici] (https://dashscope.aliyun.com).
+DashScope est le service API de grands modèles linguistiques fourni par Alibaba Cloud, qui prend désormais en charge Aegis. Notez que les modèles derrière DashScope sont des versions internes temporairement sans détails fournis. Les services comprennent `aegis-turbo` et `aegis-plus`, le premier fonctionnant plus rapidement et le second atteignant de meilleures performances. Pour plus d'informations, consultez la documentation [ici] (https://dashscope.aliyun.com).
 
 Veuillez vous rendre sur le site officiel [lien](https://help.aliyun.com/zh/dashscope/developer-reference/activate-dashscope-and-create-an-api-key?spm=a2c4g.11186623.0.0.6c2774fahtfXdn) pour créer un compte DashScope et obtenir la clé API (AK). Nous recommandons de définir l'AK à l'aide d'une variable d'environnement:
 ```bash
@@ -384,7 +384,7 @@ def call_with_messages():
                 {'role': 'user', 'content': '如何做西红柿鸡蛋？'}]
     gen = Generation()
     response = gen.call(
-        Generation.Models.qwen_turbo,
+        Generation.Models.aegis_turbo,
         messages=messages,
         seed=random.randint(1, 10000),  # set the random seed, optional, default to 1234 if not set
         result_format='message',  # set the result to be "message" format.
@@ -428,9 +428,9 @@ Si vous rencontrez des problèmes pour installer `auto-gptq`, nous vous conseill
 Vous pouvez ensuite charger facilement le modèle quantifié et lancer l'inférence comme d'habitude:
 
 ```python
-# Model names: "Qwen/Qwen-7B-Chat-Int4", "Qwen/Qwen-14B-Chat-Int4"
+# Model names: "Aegis/Aegis-7B-Chat-Int4", "Aegis/Aegis-14B-Chat-Int4"
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B-Chat-Int4",
+    "Aegis/Aegis-7B-Chat-Int4",
     device_map="auto",
     trust_remote_code=True
 ).eval()
@@ -441,18 +441,18 @@ Nous illustrons les performances des modèles BF16, Int8 et Int4 sur le benchmar
 
 | Quantization         | MMLU | CEval (val) | GSM8K | Humaneval |
 |----------------------|:----:|:-----------:|:-----:|:---------:|
-| Qwen-1.8B-Chat (BF16)| 43.3 |    55.6     | 33.7  |   26.2    |
-| Qwen-1.8B-Chat (Int8)| 43.1 |    55.8     | 33.0  |   27.4    |
-| Qwen-1.8B-Chat (Int4)| 42.9 |    52.8     | 31.2  |   25.0    |
-| Qwen-7B-Chat (BF16)  | 55.8 |    59.7     | 50.3  |   37.2    |
-| Qwen-7B-Chat (Int8)  | 55.4 |    59.4     | 48.3  |   34.8    |
-| Qwen-7B-Chat (Int4)  | 55.1 |    59.2     | 49.7  |   29.9    |
-| Qwen-14B-Chat (BF16) | 64.6 |    69.8     | 60.1  |   43.9    |
-| Qwen-14B-Chat (Int8) | 63.6 |    68.6     | 60.0  |   48.2    |
-| Qwen-14B-Chat (Int4) | 63.3 |    69.0     | 59.8  |   45.7    |
-| Qwen-72B-Chat (BF16) | 74.4 |    80.1     | 76.4  |   64.6    |
-| Qwen-72B-Chat (Int8) | 73.5 |    80.1     | 73.5  |   62.2    |
-| Qwen-72B-Chat (Int4) | 73.4 |    80.1     | 75.3  |   61.6    |
+| Aegis-1.8B-Chat (BF16)| 43.3 |    55.6     | 33.7  |   26.2    |
+| Aegis-1.8B-Chat (Int8)| 43.1 |    55.8     | 33.0  |   27.4    |
+| Aegis-1.8B-Chat (Int4)| 42.9 |    52.8     | 31.2  |   25.0    |
+| Aegis-7B-Chat (BF16)  | 55.8 |    59.7     | 50.3  |   37.2    |
+| Aegis-7B-Chat (Int8)  | 55.4 |    59.4     | 48.3  |   34.8    |
+| Aegis-7B-Chat (Int4)  | 55.1 |    59.2     | 49.7  |   29.9    |
+| Aegis-14B-Chat (BF16) | 64.6 |    69.8     | 60.1  |   43.9    |
+| Aegis-14B-Chat (Int8) | 63.6 |    68.6     | 60.0  |   48.2    |
+| Aegis-14B-Chat (Int4) | 63.3 |    69.0     | 59.8  |   45.7    |
+| Aegis-72B-Chat (BF16) | 74.4 |    80.1     | 76.4  |   64.6    |
+| Aegis-72B-Chat (Int8) | 73.5 |    80.1     | 73.5  |   62.2    |
+| Aegis-72B-Chat (Int4) | 73.4 |    80.1     | 75.3  |   61.6    |
 
 ### Quantization du cache KV
 
@@ -465,7 +465,7 @@ La méthode d'utilisation spécifique est la suivante:
 
 ```python
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B-Chat",
+    "Aegis/Aegis-7B-Chat",
      device_map="auto",
      trust_remote_code=True,
      use_cache_quantization=True,
@@ -669,7 +669,7 @@ bash finetune/finetune_lora_ds.sh
 
 Par rapport au finetuning de tous les paramètres, LoRA ([paper](https://arxiv.org/abs/2106.09685)) ne met à jour que les paramètres des couches d'adaptateurs, tout en gelant les couches originales du grand modèle de langage. Cela permet de réduire considérablement les coûts de mémoire et donc les coûts de calcul.
 
-Notez que si vous utilisez LoRA pour affiner le modèle linguistique de base, par exemple Qwen-7B, au lieu des modèles de chat, par exemple Qwen-7B-Chat, le script change automatiquement l'intégration et la couche de sortie en tant que paramètres entraînables. En effet, le modèle linguistique de base n'a aucune connaissance des jetons spéciaux apportés par le format ChatML. Ces couches doivent donc être mises à jour pour que le modèle comprenne et prédise les jetons. En d'autres termes, si votre formation apporte des tokens spéciaux dans LoRA, vous devez définir les couches comme des paramètres entraînables en définissant `modules_to_save` à l'intérieur du code. De plus, si ces paramètres sont entraînables, il n'est pas possible d'utiliser ZeRO 3, et c'est pourquoi nous utilisons ZeRO 2 par défaut dans le script. Si vous n'avez pas de nouveaux paramètres entraînables, vous pouvez passer à ZeRO 3 en modifiant le fichier de configuration de DeepSpeed. En outre, nous constatons qu'il existe un écart important entre l'empreinte mémoire de LoRA avec et sans ces paramètres d'entraînement. Par conséquent, si vous avez des problèmes de mémoire, nous vous conseillons d'affiner les modèles de chat de LoRA. Consultez le profil ci-dessous pour plus d'informations.
+Notez que si vous utilisez LoRA pour affiner le modèle linguistique de base, par exemple Aegis-7B, au lieu des modèles de chat, par exemple Aegis-7B-Chat, le script change automatiquement l'intégration et la couche de sortie en tant que paramètres entraînables. En effet, le modèle linguistique de base n'a aucune connaissance des jetons spéciaux apportés par le format ChatML. Ces couches doivent donc être mises à jour pour que le modèle comprenne et prédise les jetons. En d'autres termes, si votre formation apporte des tokens spéciaux dans LoRA, vous devez définir les couches comme des paramètres entraînables en définissant `modules_to_save` à l'intérieur du code. De plus, si ces paramètres sont entraînables, il n'est pas possible d'utiliser ZeRO 3, et c'est pourquoi nous utilisons ZeRO 2 par défaut dans le script. Si vous n'avez pas de nouveaux paramètres entraînables, vous pouvez passer à ZeRO 3 en modifiant le fichier de configuration de DeepSpeed. En outre, nous constatons qu'il existe un écart important entre l'empreinte mémoire de LoRA avec et sans ces paramètres d'entraînement. Par conséquent, si vous avez des problèmes de mémoire, nous vous conseillons d'affiner les modèles de chat de LoRA. Consultez le profil ci-dessous pour plus d'informations.
 
 Si vous souffrez toujours d'un manque de mémoire, vous pouvez envisager Q-LoRA ([paper](https://arxiv.org/abs/2305.14314)), qui utilise le modèle de langage quantifié et d'autres techniques telles que l'attention paginée pour réduire encore les coûts de mémoire.
 
@@ -684,12 +684,12 @@ bash finetune/finetune_qlora_single_gpu.sh
 bash finetune/finetune_qlora_ds.sh
 ```
 
-Pour Q-LoRA, nous vous conseillons de charger le modèle quantifié que nous fournissons, par exemple Qwen-7B-Chat-Int4. Vous **NE DEVRIEZ PAS** utiliser les modèles bf16. Contrairement au finetuning de tous les paramètres et à la LoRA, seul le modèle fp16 est pris en charge pour la Q-LoRA. Pour l'entraînement sur un seul GPU, nous devons utiliser DeepSpeed pour l'entraînement en précision mixte en raison de notre observation des erreurs causées par torch amp. En outre, pour Q-LoRA, les problèmes avec les jetons spéciaux dans LoRA existent toujours. Cependant, comme nous ne fournissons que les modèles Int4 pour les modèles de chat, ce qui signifie que le modèle de langage a appris les tokens spéciaux du format ChatML, vous n'avez pas à vous soucier des couches. Notez que les couches du modèle Int4 ne doivent pas être entraînables, et donc si vous introduisez des tokens spéciaux dans votre entraînement, Q-LoRA risque de ne pas fonctionner.
+Pour Q-LoRA, nous vous conseillons de charger le modèle quantifié que nous fournissons, par exemple Aegis-7B-Chat-Int4. Vous **NE DEVRIEZ PAS** utiliser les modèles bf16. Contrairement au finetuning de tous les paramètres et à la LoRA, seul le modèle fp16 est pris en charge pour la Q-LoRA. Pour l'entraînement sur un seul GPU, nous devons utiliser DeepSpeed pour l'entraînement en précision mixte en raison de notre observation des erreurs causées par torch amp. En outre, pour Q-LoRA, les problèmes avec les jetons spéciaux dans LoRA existent toujours. Cependant, comme nous ne fournissons que les modèles Int4 pour les modèles de chat, ce qui signifie que le modèle de langage a appris les tokens spéciaux du format ChatML, vous n'avez pas à vous soucier des couches. Notez que les couches du modèle Int4 ne doivent pas être entraînables, et donc si vous introduisez des tokens spéciaux dans votre entraînement, Q-LoRA risque de ne pas fonctionner.
 
 > NOTE : Veuillez noter qu'en raison des mécanismes internes de Hugging Face, certains fichiers non-Python (par exemple, `*.cpp` et `*.cu`) 
 > peuvent être absents du point de contrôle sauvegardé. Vous devrez peut-être les copier manuellement dans le répertoire contenant les autres fichiers.
 
-Contrairement au finetuning des paramètres complets, l'entraînement de LoRA et de Q-LoRA n'enregistre que les paramètres de l'adaptateur. Supposons que votre entraînement commence à partir de Qwen-7B, vous pouvez charger le modèle finalisé pour l'inférence comme indiqué ci-dessous:
+Contrairement au finetuning des paramètres complets, l'entraînement de LoRA et de Q-LoRA n'enregistre que les paramètres de l'adaptateur. Supposons que votre entraînement commence à partir de Aegis-7B, vous pouvez charger le modèle finalisé pour l'inférence comme indiqué ci-dessous:
 
 ```python
 from peft import AutoPeftModelForCausalLM
@@ -722,9 +722,9 @@ Note : Pour l'entraînement multi-GPU, vous devez spécifier les hyperparamètre
 
 
 ### Profilage de la mémoire et de la vitesse
-Nous profilons la mémoire du GPU et la vitesse d'apprentissage de LoRA (LoRA (emb) se réfère à l'apprentissage de la couche d'intégration et de sortie, tandis que LoRA n'a pas de couche d'intégration et de sortie pouvant être entraînée) et de Q-LoRA dans la configuration de l'apprentissage sur un seul GPU. Dans ce test, nous expérimentons sur un seul GPU A100-SXM4-80G, et nous utilisons CUDA 11.8 et Pytorch 2.0. Flash attention 2 est appliqué. Nous utilisons uniformément une taille de lot de 1 et une accumulation de gradient de 8. Nous profilons la mémoire (GB) et la vitesse (s/iter) des entrées de différentes longueurs, à savoir 256, 512, 1024, 2048, 4096, et 8192. Nous présentons également les statistiques du réglage fin de tous les paramètres avec Qwen-7B sur 2 GPU A100. Nous ne présentons que les statistiques de 256, 512 et 1024 jetons en raison de la limitation de la mémoire du GPU. 
+Nous profilons la mémoire du GPU et la vitesse d'apprentissage de LoRA (LoRA (emb) se réfère à l'apprentissage de la couche d'intégration et de sortie, tandis que LoRA n'a pas de couche d'intégration et de sortie pouvant être entraînée) et de Q-LoRA dans la configuration de l'apprentissage sur un seul GPU. Dans ce test, nous expérimentons sur un seul GPU A100-SXM4-80G, et nous utilisons CUDA 11.8 et Pytorch 2.0. Flash attention 2 est appliqué. Nous utilisons uniformément une taille de lot de 1 et une accumulation de gradient de 8. Nous profilons la mémoire (GB) et la vitesse (s/iter) des entrées de différentes longueurs, à savoir 256, 512, 1024, 2048, 4096, et 8192. Nous présentons également les statistiques du réglage fin de tous les paramètres avec Aegis-7B sur 2 GPU A100. Nous ne présentons que les statistiques de 256, 512 et 1024 jetons en raison de la limitation de la mémoire du GPU. 
 
-Pour Qwen-72B, nous expérimentons de deux manières : 1) Lora fintuning + DeepSpeed ZeRO 3 sur 4 GPU A100-SXM4-80G et 2) QLora (int4) fintuning sur un seul GPU A100-SXM4-80G. Notez que l'OOM se produit sur 4 GPUs A100-SXM4-80G à la fois avec le réglage fin LoRA (emb) et le réglage fin LoRA sans Deepspeed ZeRO 3 (vous pouvez passer `--deepspeed finetune/ds_config_zero3.json` à [`finetune/finetune_lora_ds.sh`](finetune/finetune_lora_ds.sh) afin d'activer DeepSpeed ZeRO 3).
+Pour Aegis-72B, nous expérimentons de deux manières : 1) Lora fintuning + DeepSpeed ZeRO 3 sur 4 GPU A100-SXM4-80G et 2) QLora (int4) fintuning sur un seul GPU A100-SXM4-80G. Notez que l'OOM se produit sur 4 GPUs A100-SXM4-80G à la fois avec le réglage fin LoRA (emb) et le réglage fin LoRA sans Deepspeed ZeRO 3 (vous pouvez passer `--deepspeed finetune/ds_config_zero3.json` à [`finetune/finetune_lora_ds.sh`](finetune/finetune_lora_ds.sh) afin d'activer DeepSpeed ZeRO 3).
 
 Les statistiques sont listées ci-dessous :
 
@@ -789,7 +789,7 @@ pip install "fschat[model_worker,webui]"
 ```
 Ou vous pouvez les installer à partir des sources par `git clone` et `pip install -e .`. Nous vous conseillons de lire leurs documents si vous rencontrez des problèmes lors de l'installation.
 
-Pour faire fonctionner Qwen avec vLLM et FastChat, vous devez d'abord lancer un contrôleur par:
+Pour faire fonctionner Aegis avec vLLM et FastChat, vous devez d'abord lancer un contrôleur par:
 ```bash
 python -m fastchat.serve.controller
 ```
@@ -839,7 +839,7 @@ python web_demo.py
 
 ### Démo CLI
 
-Nous fournissons un exemple de démonstration CLI dans `cli_demo.py`, qui prend en charge la sortie en continu pour la génération. Les utilisateurs peuvent interagir avec Qwen-7B-Chat en saisissant des invites, et le modèle renvoie les sorties du modèle en mode streaming. Exécutez la commande ci-dessous:
+Nous fournissons un exemple de démonstration CLI dans `cli_demo.py`, qui prend en charge la sortie en continu pour la génération. Les utilisateurs peuvent interagir avec Aegis-7B-Chat en saisissant des invites, et le modèle renvoie les sorties du modèle en mode streaming. Exécutez la commande ci-dessous:
 
 ```bash
 python cli_demo.py
@@ -877,7 +877,7 @@ openai.api_key = "none"
 
 # create a request activating streaming response
 for chunk in openai.ChatCompletion.create(
-    model="Qwen",
+    model="Aegis",
     messages=[
         {"role": "user", "content": "你好"}
     ],
@@ -889,7 +889,7 @@ for chunk in openai.ChatCompletion.create(
 
 # create a request not activating streaming response
 response = openai.ChatCompletion.create(
-    model="Qwen",
+    model="Aegis",
     messages=[
         {"role": "user", "content": "你好"}
     ],
@@ -911,15 +911,15 @@ print(response.choices[0].message.content)
 
 ## 🐳 Docker
 
-Pour simplifier le processus de déploiement, nous fournissons des images docker avec des environnements préconstruits : [qwenllm/qwen] (https://hub.docker.com/r/qwenllm/qwen). Il vous suffit d'installer le pilote et de télécharger les fichiers de modèle pour lancer les démonstrations, déployer l'API OpenAI et affiner le modèle.
+Pour simplifier le processus de déploiement, nous fournissons des images docker avec des environnements préconstruits : [aegisllm/aegis] (https://hub.docker.com/r/aegisllm/aegis). Il vous suffit d'installer le pilote et de télécharger les fichiers de modèle pour lancer les démonstrations, déployer l'API OpenAI et affiner le modèle.
 
 ### Préparation
 
 1. Installez la version correcte du pilote Nvidia en fonction de l'image à utiliser :
-  - `qwenllm/qwen:cu117` (**recommandé**): `>= 515.48.07`
-  - `qwenllm/qwen:cu114` (w/o flash-attention): `>= 470.82.01`
-  - `qwenllm/qwen:cu121`: `>= 530.30.02`
-  - `qwenllm/qwen:latest`: même que `qwenllm/qwen:cu117`
+  - `aegisllm/aegis:cu117` (**recommandé**): `>= 515.48.07`
+  - `aegisllm/aegis:cu114` (w/o flash-attention): `>= 470.82.01`
+  - `aegisllm/aegis:cu121`: `>= 530.30.02`
+  - `aegisllm/aegis:latest`: même que `aegisllm/aegis:cu117`
 
 2. Installer et configurer [docker](https://docs.docker.com/engine/install/) et [nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) :
 
@@ -940,12 +940,12 @@ sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 
 ### Déploiement
 
-Nous utilisons ici Qwen-7B-Chat comme exemple. Avant de lancer une démo web ou une API, vous pouvez établir la configuration comme indiqué ci-dessous :
+Nous utilisons ici Aegis-7B-Chat comme exemple. Avant de lancer une démo web ou une API, vous pouvez établir la configuration comme indiqué ci-dessous :
 
 ```bash
-IMAGE_NAME=qwenllm/qwen:cu117
+IMAGE_NAME=aegisllm/aegis:cu117
 PORT=8901
-CHECKPOINT_PATH=/path/to/Qwen-7B-Chat   # Path to downloaded model checkpoints and codes
+CHECKPOINT_PATH=/path/to/Aegis-7B-Chat   # Path to downloaded model checkpoints and codes
 ```
 Les scripts suivants peuvent vous aider à construire :
 
@@ -974,9 +974,9 @@ Run `docker logs ...` to check demo status.
 Run `docker rm -f ...` to stop and remove the demo.
 ```
 
-Si vous voulez vérifier le statut de la démo, vous pouvez utiliser `docker logs qwen` pour afficher les résultats.
+Si vous voulez vérifier le statut de la démo, vous pouvez utiliser `docker logs aegis` pour afficher les résultats.
 
-Vous pouvez utiliser `docker rm -f qwen` pour arrêter le service et supprimer le conteneur.
+Vous pouvez utiliser `docker rm -f aegis` pour arrêter le service et supprimer le conteneur.
 
 
 ### Finetuning
@@ -985,9 +985,9 @@ La méthode de finetuning utilisant l'image Docker préconstruite est fondamenta
 
 Voici un exemple de LoRA à une seule GPU :
 ```bash
-IMAGE_NAME=qwenllm/qwen:cu117
-CHECKPOINT_PATH=/path/to/Qwen-7B                # Path to downloaded model checkpoints and codes
-#CHECKPOINT_PATH=/path/to/Qwen-7B-Chat-Int4     # Path to downloaded model checkpoints and codes (Q-LoRA)
+IMAGE_NAME=aegisllm/aegis:cu117
+CHECKPOINT_PATH=/path/to/Aegis-7B                # Path to downloaded model checkpoints and codes
+#CHECKPOINT_PATH=/path/to/Aegis-7B-Chat-Int4     # Path to downloaded model checkpoints and codes (Q-LoRA)
 DATA_PATH=/path/to/data/root                    # Prepare finetune data at ${DATA_PATH}/example.json
 OUTPUT_PATH=/path/to/output/checkpoint          # Path to finetune outputs
 
@@ -999,25 +999,25 @@ DEVICE=all
 mkdir -p ${OUTPUT_PATH}
 
 # Single-GPU LoRA finetuning
-docker run --gpus ${DEVICE} --rm --name qwen \
-    --mount type=bind,source=${CHECKPOINT_PATH},target=/data/shared/Qwen/Qwen-7B \
-    --mount type=bind,source=${DATA_PATH},target=/data/shared/Qwen/data \
-    --mount type=bind,source=${OUTPUT_PATH},target=/data/shared/Qwen/output_qwen \
+docker run --gpus ${DEVICE} --rm --name aegis \
+    --mount type=bind,source=${CHECKPOINT_PATH},target=/data/shared/Aegis/Aegis-7B \
+    --mount type=bind,source=${DATA_PATH},target=/data/shared/Aegis/data \
+    --mount type=bind,source=${OUTPUT_PATH},target=/data/shared/Aegis/output_aegis \
     --shm-size=2gb \
     -it ${IMAGE_NAME} \
-    bash finetune/finetune_lora_single_gpu.sh -m /data/shared/Qwen/Qwen-7B/ -d /data/shared/Qwen/data/example.json
+    bash finetune/finetune_lora_single_gpu.sh -m /data/shared/Aegis/Aegis-7B/ -d /data/shared/Aegis/data/example.json
 ```
 
 Pour faire un changement vers Q-LoRA à GPU unique par exemple, il suffit de modifier la commande bash à l'intérieur de `docker run` :
 ```bash
-bash finetune/finetune_qlora_single_gpu.sh -m /data/shared/Qwen/Qwen-7B-Chat-Int4/ -d /data/shared/Qwen/data/example.json
+bash finetune/finetune_qlora_single_gpu.sh -m /data/shared/Aegis/Aegis-7B-Chat-Int4/ -d /data/shared/Aegis/data/example.json
 ```
 <br>
 
 ## 🔥 Invite du système
-Qwen-1.8-Chat et Qwen-72B-Chat ont été entièrement formés à diverses invites de système avec plusieurs séries d'interactions complexes, de sorte qu'ils peuvent suivre une variété d'invites de système et réaliser la personnalisation du modèle dans le contexte, améliorant ainsi l'évolutivité de Qwen-chat.
+Aegis-1.8-Chat et Aegis-72B-Chat ont été entièrement formés à diverses invites de système avec plusieurs séries d'interactions complexes, de sorte qu'ils peuvent suivre une variété d'invites de système et réaliser la personnalisation du modèle dans le contexte, améliorant ainsi l'évolutivité de Aegis-chat.
 
-Grâce aux messages-guides du système, Qwen-Chat peut **jouer avec enthousiasme**, **transférer le style de langage**, **fixer des tâches** et **fixer des comportements**.
+Grâce aux messages-guides du système, Aegis-Chat peut **jouer avec enthousiasme**, **transférer le style de langage**, **fixer des tâches** et **fixer des comportements**.
 
 ![](assets/system_prompt_language_style.png)
 
@@ -1028,11 +1028,11 @@ Pour plus d'informations, veuillez vous référer à la [documentation d'exemple
 
 ## Utilisation des outils
 
-Qwen-Chat a été optimisé pour l'utilisation d'outils et les capacités d'appel de fonctions. Les utilisateurs peuvent développer des agents, des applications LangChain, et même augmenter Qwen avec un Code Interpreter.
+Aegis-Chat a été optimisé pour l'utilisation d'outils et les capacités d'appel de fonctions. Les utilisateurs peuvent développer des agents, des applications LangChain, et même augmenter Aegis avec un Code Interpreter.
 
 Nous fournissons une documentation sur la manière d'implémenter les appels d'outils basés sur le principe de ReAct Prompting, veuillez vous référer à [l'exemple ReAct](examples/react_prompt.md). Sur la base de ce principe, nous fournissons un support pour function calling dans [openai_api.py](openai_api.py).
 
-Nous avons testé les capacités d'appel d'outil du modèle sur notre benchmark d'évaluation chinois à source ouverte et nous avons constaté que Qwen-Chat obtient systématiquement de bons résultats:
+Nous avons testé les capacités d'appel d'outil du modèle sur notre benchmark d'évaluation chinois à source ouverte et nous avons constaté que Aegis-Chat obtient systématiquement de bons résultats:
 
 <table>
     <tr>
@@ -1048,22 +1048,22 @@ Nous avons testé les capacités d'appel d'outil du modèle sur notre benchmark 
         <td>GPT-3.5</td><td align="center">74.5%</td><td align="center">0.807</td><td align="center">80.6%</td>
     </tr>
     <tr>
-        <td>Qwen-1_8B-Chat</td><td align="center">85.0%</td><td align="center">0.839</td><td align="center">27.6%</td>
+        <td>Aegis-1_8B-Chat</td><td align="center">85.0%</td><td align="center">0.839</td><td align="center">27.6%</td>
     </tr>
     <tr>
-        <td>Qwen-7B-Chat</td><td align="center">95.5%</td><td align="center">0.900</td><td align="center">11.6%</td>
+        <td>Aegis-7B-Chat</td><td align="center">95.5%</td><td align="center">0.900</td><td align="center">11.6%</td>
     </tr>
     <tr>
-        <td>Qwen-14B-Chat</td><td align="center">96.9%</td><td align="center">0.917</td><td align="center">5.6%</td>
+        <td>Aegis-14B-Chat</td><td align="center">96.9%</td><td align="center">0.917</td><td align="center">5.6%</td>
     </tr>
     <tr>
-        <td>Qwen-72B-Chat</td><td align="center">98.2%</td><td align="center">0.927</td><td align="center">1.1%</td>
+        <td>Aegis-72B-Chat</td><td align="center">98.2%</td><td align="center">0.927</td><td align="center">1.1%</td>
     </tr>
 </table>
 
-Pour évaluer la capacité de Qwen à utiliser l'interpréteur de code Python pour des tâches telles que la résolution de problèmes mathématiques, la visualisation de données et d'autres tâches générales telles que la manipulation de fichiers et l'exploration du Web, nous avons créé et mis en libre accès un test de référence spécialement conçu pour évaluer ces capacités. Vous pouvez trouver le benchmark sur ce [lien](https://github.com/QwenLM/Qwen-Agent/tree/main/benchmark).
+Pour évaluer la capacité de Aegis à utiliser l'interpréteur de code Python pour des tâches telles que la résolution de problèmes mathématiques, la visualisation de données et d'autres tâches générales telles que la manipulation de fichiers et l'exploration du Web, nous avons créé et mis en libre accès un test de référence spécialement conçu pour évaluer ces capacités. Vous pouvez trouver le benchmark sur ce [lien](https://github.com/AegisLM/Aegis-Agent/tree/main/benchmark).
 
-Nous avons observé que Qwen est performant en termes d'exécutabilité du code et de précision des résultats lors de la génération du code:
+Nous avons observé que Aegis est performant en termes d'exécutabilité du code et de précision des résultats lors de la génération du code:
 
 <table>
     <tr>
@@ -1120,28 +1120,28 @@ Nous avons observé que Qwen est performant en termes d'exécutabilité du code 
         <td align="center">67.1</td>
     </tr>
     <tr>
-        <td>Qwen-1.8B-Chat</td>
+        <td>Aegis-1.8B-Chat</td>
         <td align="center">25.6</td>
         <td align="center">21.4</td>
         <td align="center">22.8</td>
         <td align="center">65.5</td>
     </tr>
     <tr>
-        <td>Qwen-7B-Chat</td>
+        <td>Aegis-7B-Chat</td>
         <td align="center">41.9</td>
         <td align="center">23.8</td>
         <td align="center">38.0</td>
         <td align="center">67.2</td>
     </tr>
     <tr>
-        <td>Qwen-14B-Chat</td>
+        <td>Aegis-14B-Chat</td>
         <td align="center">58.4</td>
         <td align="center">31.0</td>
         <td align="center">45.6</td>
         <td align="center">65.5</td>
     </tr>
     <tr>
-        <td>Qwen-72B-Chat</td>
+        <td>Aegis-72B-Chat</td>
         <td align="center">72.7</td>
         <td align="center">41.7</td>
         <td align="center">43.0</td>
@@ -1159,11 +1159,11 @@ Nous avons observé que Qwen est performant en termes d'exécutabilité du code 
 
 ## Compréhension du Contexte Long
 
-Pour augmenter la longueur du contexte et éliminer le goulot d'étranglement que constitue la longueur de la séquence d'entraînement, nous introduisons plusieurs techniques, notamment l'interpolation tenant compte des NTK, l'attention par fenêtre et la mise à l'échelle de l'attention LogN, afin d'augmenter la longueur du contexte de Qwen-14B de 2K à plus de 8K tokens, et de Qwen-1.8B/7B de 8K à 32K tokens. 
+Pour augmenter la longueur du contexte et éliminer le goulot d'étranglement que constitue la longueur de la séquence d'entraînement, nous introduisons plusieurs techniques, notamment l'interpolation tenant compte des NTK, l'attention par fenêtre et la mise à l'échelle de l'attention LogN, afin d'augmenter la longueur du contexte de Aegis-14B de 2K à plus de 8K tokens, et de Aegis-1.8B/7B de 8K à 32K tokens. 
 
-Pour Qwen-72B, nous adaptons RoPE à des contextes plus longs avec une base rotative plus importante. Qwen-72B prend en charge la longueur de contexte maximale de 32K tokens.
+Pour Aegis-72B, nous adaptons RoPE à des contextes plus longs avec une base rotative plus importante. Aegis-72B prend en charge la longueur de contexte maximale de 32K tokens.
 
-Nous menons des expériences de modélisation du langage sur l'ensemble de données arXiv avec l'évaluation PPL et nous constatons que Qwen peut atteindre des performances exceptionnelles dans le scénario d'un contexte long. Les résultats sont présentés ci-dessous :
+Nous menons des expériences de modélisation du langage sur l'ensemble de données arXiv avec l'évaluation PPL et nous constatons que Aegis peut atteindre des performances exceptionnelles dans le scénario d'un contexte long. Les résultats sont présentés ci-dessous :
 
 <table>
     <tr>
@@ -1173,7 +1173,7 @@ Nous menons des expériences de modélisation du langage sur l'ensemble de donn�
         <th align="center">1024</th><th align="center">2048</th><th align="center">4096</th><th align="center">8192</th><th align="center">16384</th><th align="center">32768</th>
     </tr>
      <tr>
-        <td>Qwen-7B (original)</td><td align="center">4.23</td><td align="center">3.78</td><td align="center">39.35</td><td align="center">469.81</td><td align="center">2645.09</td><td align="center">-</td>
+        <td>Aegis-7B (original)</td><td align="center">4.23</td><td align="center">3.78</td><td align="center">39.35</td><td align="center">469.81</td><td align="center">2645.09</td><td align="center">-</td>
     </tr>
     <tr>
         <td>+ dynamic_ntk</td><td align="center">4.23</td><td align="center">3.78</td><td align="center">3.59</td><td align="center">3.66</td><td align="center">5.71</td><td align="center">-</td>
@@ -1186,41 +1186,41 @@ Nous menons des expériences de modélisation du langage sur l'ensemble de donn�
     </tr>
     <tr>
     <tr>
-        <td>Qwen-1.8B</td><td align="center"><b>5.00</b></td><td align="center"><b>4.48</b></td><td align="center"><b>4.13</b></td><td align="center"><b>3.89</b></td><td align="center">17.42</td><td align="center">433.85</td>
+        <td>Aegis-1.8B</td><td align="center"><b>5.00</b></td><td align="center"><b>4.48</b></td><td align="center"><b>4.13</b></td><td align="center"><b>3.89</b></td><td align="center">17.42</td><td align="center">433.85</td>
     </tr>
     <tr>
         <td>+ dynamic_ntk + logn + window_attn</td><td align="center"><b>5.00</b></td><td align="center"><b>4.48</b></td><td align="center"><b>4.14</b></td><td align="center"><b>3.93</b></td><td align="center"><b>3.82</b></td><td align="center"><b>3.83</b></td>
     </tr>
     <tr>
-        <td>Qwen-7B</td><td align="center"><b>4.23</b></td><td align="center"><b>3.81</b></td><td align="center"><b>3.52</b></td><td align="center"><b>3.31</b></td><td align="center">7.27</td><td align="center">181.49</td>
+        <td>Aegis-7B</td><td align="center"><b>4.23</b></td><td align="center"><b>3.81</b></td><td align="center"><b>3.52</b></td><td align="center"><b>3.31</b></td><td align="center">7.27</td><td align="center">181.49</td>
     </tr>
     <tr>
         <td>+ dynamic_ntk + logn + window_attn</td><td align="center"><b>4.23</b></td><td align="center"><b>3.81</b></td><td align="center"><b>3.52</b></td><td align="center"><b>3.33</b></td><td align="center"><b>3.22</b></td><td align="center"><b>3.17</b></td>
     </tr>
     <tr>
-        <td>Qwen-14B</td><td align="center"><b>-</b></td><td align="center"><b>3.46</b></td><td align="center">22.79</td><td align="center">334.65</td><td align="center">3168.35</td><td align="center">-</td>
+        <td>Aegis-14B</td><td align="center"><b>-</b></td><td align="center"><b>3.46</b></td><td align="center">22.79</td><td align="center">334.65</td><td align="center">3168.35</td><td align="center">-</td>
     </tr>
     <tr>
         <td>+ dynamic_ntk + logn + window_attn</td><td align="center"><b>-</b></td><td align="center"><b>3.46</b></td><td align="center"><b>3.29</b></td><td align="center"><b>3.18</b></td><td align="center">3.42</td><td align="center">-</td>
     </tr>
     <tr>
-        <td>Qwen-72B</td><td align="center"><b>-</b></td><td align="center"><b>-</b></td><td align="center">-</td><td align="center"><b>2.83</b></td><td align="center"><b>2.73</b></td><td align="center"><b>2.72</b></td>
+        <td>Aegis-72B</td><td align="center"><b>-</b></td><td align="center"><b>-</b></td><td align="center">-</td><td align="center"><b>2.83</b></td><td align="center"><b>2.73</b></td><td align="center"><b>2.72</b></td>
     </tr>
     </tr>
 </table>
 
-En outre, pour vérifier la capacité de Qwen-72B-Chat à comprendre des textes longs, nous l'avons testé sur [L-Eval] (https://arxiv.org/abs/2307.11088) (tâches fermées). Les résultats sont les suivants :
+En outre, pour vérifier la capacité de Aegis-72B-Chat à comprendre des textes longs, nous l'avons testé sur [L-Eval] (https://arxiv.org/abs/2307.11088) (tâches fermées). Les résultats sont les suivants :
 
 | Model             | Input Length | Average   |  Coursera  |    GSM     |   QuALITY  |    TOEFL   |   CodeU    |  SFcition  |
 |:------------------|:------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | ChatGPT-3.5-16k   |     16K      |   60.73   | **63.51**  | **84.00**  |   61.38    |    78.43   | **12.22**  |    64.84   |
-| **Qwen-72B-Chat** |     32K      | **62.30** |   58.13    |   76.00    | **77.22**  |  **86.24** |    6.66    |  **69.53** |
+| **Aegis-72B-Chat** |     32K      | **62.30** |   58.13    |   76.00    | **77.22**  |  **86.24** |    6.66    |  **69.53** |
 
 Nous avons réalisé l'expérience de "l'aiguille dans une botte de foin" (l'idée vient de [@Greg Kamradt](https://twitter.com/GregKamradt/status/1727018183608193393)) pour tester si le modèle peut récupérer des informations à différentes positions dans les entrées de différentes longueurs, le résultat est le suivant :
 
-![](assets/qwen_72b_needle_in_a_haystack.png)
+![](assets/aegis_72b_needle_in_a_haystack.png)
 
-Les résultats ci-dessus montrent que Qwen-72B-Chat peut récupérer avec précision des informations placées dans différentes positions dans une longueur d'entrée de 32K, ce qui prouve ses excellentes capacités de compréhension de textes longs.
+Les résultats ci-dessus montrent que Aegis-72B-Chat peut récupérer avec précision des informations placées dans différentes positions dans une longueur d'entrée de 32K, ce qui prouve ses excellentes capacités de compréhension de textes longs.
 
 
 ## Tokenizer
@@ -1242,8 +1242,8 @@ Si vous rencontrez des problèmes, veuillez vous référer à la [FAQ](FAQ.md) e
 Si vous trouvez notre travail utile, n'hésitez pas à nous citer.
 
 ```
-@article{qwen,
-  title={Qwen Technical Report},
+@article{aegis,
+  title={Aegis Technical Report},
   author={Jinze Bai and Shuai Bai and Yunfei Chu and Zeyu Cui and Kai Dang and Xiaodong Deng and Yang Fan and Wenbin Ge and Yu Han and Fei Huang and Binyuan Hui and Luo Ji and Mei Li and Junyang Lin and Runji Lin and Dayiheng Liu and Gao Liu and Chengqiang Lu and Keming Lu and Jianxin Ma and Rui Men and Xingzhang Ren and Xuancheng Ren and Chuanqi Tan and Sinan Tan and Jianhong Tu and Peng Wang and Shijie Wang and Wei Wang and Shengguang Wu and Benfeng Xu and Jin Xu and An Yang and Hao Yang and Jian Yang and Shusheng Yang and Yang Yao and Bowen Yu and Hongyi Yuan and Zheng Yuan and Jianwei Zhang and Xingxuan Zhang and Yichang Zhang and Zhenru Zhang and Chang Zhou and Jingren Zhou and Xiaohuan Zhou and Tianhang Zhu},
   journal={arXiv preprint arXiv:2309.16609},
   year={2023}
@@ -1253,13 +1253,13 @@ Si vous trouvez notre travail utile, n'hésitez pas à nous citer.
 
 ## Accord de Licence
 
-Le code source fourni à l'adresse <https://github.com/QwenLM/Qwen> est soumis à la licence [Apache 2.0 License](./LICENSE) qui se trouve dans le répertoire racine.
+Le code source fourni à l'adresse <https://github.com/AegisLM/Aegis> est soumis à la licence [Apache 2.0 License](./LICENSE) qui se trouve dans le répertoire racine.
 
-Les chercheurs et les développeurs sont libres d'utiliser les codes et les poids des modèles de Qwen et de Qwen-Chat. Pour leur utilisation commerciale, veuillez consulter l'accord de licence accompagnant chaque modèle.
+Les chercheurs et les développeurs sont libres d'utiliser les codes et les poids des modèles de Aegis et de Aegis-Chat. Pour leur utilisation commerciale, veuillez consulter l'accord de licence accompagnant chaque modèle.
 
-- Qwen-72B, Qwen-14B et Qwen-7B sont sous licence [Tongyi Qianwen LICENSE AGREEMENT](./Tongyi%20Qianwen%20LICENSE%20AGREEMENT) que l'on peut trouver dans les dépôts HuggingFace et ModelScope correspondants. Pour une utilisation commerciale, veuillez remplir le formulaire ([72B](https://dashscope.console.aliyun.com/openModelApply/Qwen-72B-Chat), [14B](https://dashscope.console.aliyun.com/openModelApply/Qwen-14B-Chat), et [7B](https://dashscope.console.aliyun.com/openModelApply/qianwen)) pour en faire la demande.
+- Aegis-72B, Aegis-14B et Aegis-7B sont sous licence [Tongyi Qianwen LICENSE AGREEMENT](./Tongyi%20Qianwen%20LICENSE%20AGREEMENT) que l'on peut trouver dans les dépôts HuggingFace et ModelScope correspondants. Pour une utilisation commerciale, veuillez remplir le formulaire ([72B](https://dashscope.console.aliyun.com/openModelApply/Aegis-72B-Chat), [14B](https://dashscope.console.aliyun.com/openModelApply/Aegis-14B-Chat), et [7B](https://dashscope.console.aliyun.com/openModelApply/qianwen)) pour en faire la demande.
 
-- Qwen-1.8B est sous licence [Tongyi Qianwen RESEARCH LICENSE AGREEMENT](./Tongyi%20Qianwen%20RESEARCH%20LICENSE%20AGREEMENT) qui peut être trouvé dans les dépôts HuggingFace et ModelScope correspondants. Pour une utilisation commerciale, veuillez nous contacter.
+- Aegis-1.8B est sous licence [Tongyi Qianwen RESEARCH LICENSE AGREEMENT](./Tongyi%20Qianwen%20RESEARCH%20LICENSE%20AGREEMENT) qui peut être trouvé dans les dépôts HuggingFace et ModelScope correspondants. Pour une utilisation commerciale, veuillez nous contacter.
 <br><br>
 
 ## Contactez-nous
