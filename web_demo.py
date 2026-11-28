@@ -15,7 +15,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
 
-DEFAULT_CKPT_PATH = 'Qwen/Qwen-7B-Chat'
+DEFAULT_CKPT_PATH = 'Aegis/Aegis-7B-Chat'
 
 
 def _get_args():
@@ -129,7 +129,7 @@ def _launch_demo(args, model, tokenizer, config):
 
         print(f"History: {_task_history}")
         _task_history.append((_query, full_response))
-        print(f"Qwen-Chat: {_parse_text(full_response)}")
+        print(f"Aegis-Chat: {_parse_text(full_response)}")
 
     def regenerate(_chatbot, _task_history):
         if not _task_history:
@@ -150,25 +150,25 @@ def _launch_demo(args, model, tokenizer, config):
 
     with gr.Blocks() as demo:
         gr.Markdown("""\
-<p align="center"><img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/logo_qwen.jpg" style="height: 80px"/><p>""")
-        gr.Markdown("""<center><font size=8>Qwen-Chat Bot</center>""")
+<p align="center"><img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/logo_aegis.jpg" style="height: 80px"/><p>""")
+        gr.Markdown("""<center><font size=8>Aegis-Chat Bot</center>""")
         gr.Markdown(
             """\
-<center><font size=3>This WebUI is based on Qwen-Chat, developed by Alibaba Cloud. \
-(本WebUI基于Qwen-Chat打造，实现聊天机器人功能。)</center>""")
+<center><font size=3>This WebUI is based on Aegis-Chat, developed by Alibaba Cloud. \
+(本WebUI基于Aegis-Chat打造，实现聊天机器人功能。)</center>""")
         gr.Markdown("""\
 <center><font size=4>
-Qwen-7B <a href="https://modelscope.cn/models/qwen/Qwen-7B/summary">🤖 </a> | 
-<a href="https://huggingface.co/Qwen/Qwen-7B">🤗</a>&nbsp ｜ 
-Qwen-7B-Chat <a href="https://modelscope.cn/models/qwen/Qwen-7B-Chat/summary">🤖 </a> | 
-<a href="https://huggingface.co/Qwen/Qwen-7B-Chat">🤗</a>&nbsp ｜ 
-Qwen-14B <a href="https://modelscope.cn/models/qwen/Qwen-14B/summary">🤖 </a> | 
-<a href="https://huggingface.co/Qwen/Qwen-14B">🤗</a>&nbsp ｜ 
-Qwen-14B-Chat <a href="https://modelscope.cn/models/qwen/Qwen-14B-Chat/summary">🤖 </a> | 
-<a href="https://huggingface.co/Qwen/Qwen-14B-Chat">🤗</a>&nbsp ｜ 
-&nbsp<a href="https://github.com/QwenLM/Qwen">Github</a></center>""")
+Aegis-7B <a href="https://modelscope.cn/models/aegis/Aegis-7B/summary">🤖 </a> | 
+<a href="https://huggingface.co/Aegis/Aegis-7B">🤗</a>&nbsp ｜ 
+Aegis-7B-Chat <a href="https://modelscope.cn/models/aegis/Aegis-7B-Chat/summary">🤖 </a> | 
+<a href="https://huggingface.co/Aegis/Aegis-7B-Chat">🤗</a>&nbsp ｜ 
+Aegis-14B <a href="https://modelscope.cn/models/aegis/Aegis-14B/summary">🤖 </a> | 
+<a href="https://huggingface.co/Aegis/Aegis-14B">🤗</a>&nbsp ｜ 
+Aegis-14B-Chat <a href="https://modelscope.cn/models/aegis/Aegis-14B-Chat/summary">🤖 </a> | 
+<a href="https://huggingface.co/Aegis/Aegis-14B-Chat">🤗</a>&nbsp ｜ 
+&nbsp<a href="https://github.com/AegisLM/Aegis">Github</a></center>""")
 
-        chatbot = gr.Chatbot(label='Qwen-Chat', elem_classes="control-height")
+        chatbot = gr.Chatbot(label='Aegis-Chat', elem_classes="control-height")
         query = gr.Textbox(lines=2, label='Input')
         task_history = gr.State([])
 
@@ -183,10 +183,10 @@ Qwen-14B-Chat <a href="https://modelscope.cn/models/qwen/Qwen-14B-Chat/summary">
         regen_btn.click(regenerate, [chatbot, task_history], [chatbot], show_progress=True)
 
         gr.Markdown("""\
-<font size=2>Note: This demo is governed by the original license of Qwen. \
+<font size=2>Note: This demo is governed by the original license of Aegis. \
 We strongly advise users not to knowingly generate or allow others to knowingly generate harmful content, \
 including hate speech, violence, pornography, deception, etc. \
-(注：本演示受Qwen的许可协议限制。我们强烈建议，用户不应传播及不应允许他人传播以下内容，\
+(注：本演示受Aegis的许可协议限制。我们强烈建议，用户不应传播及不应允许他人传播以下内容，\
 包括但不限于仇恨言论、暴力、色情、欺诈相关的有害信息。)""")
 
     demo.queue().launch(
