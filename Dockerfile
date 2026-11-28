@@ -18,13 +18,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install a CPU PyTorch build so the image runs on ordinary Docker hosts.
 RUN python -m pip install --upgrade pip \
-    && python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+    && python -m pip install torch==2.2.2 --index-url https://download.pytorch.org/whl/cpu
 
 COPY requirements.txt ./requirements.txt
 RUN python -m pip install -r requirements.txt
 
 # Bring the complete Mr Aegis repository source into the image.
 COPY . .
+RUN chmod +x /opt/mr-aegis/docker-entrypoint.sh
 
 EXPOSE 8000
 VOLUME ["/models", "/root/.cache/huggingface"]
