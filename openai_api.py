@@ -539,7 +539,7 @@ def _get_args():
         '-c',
         '--checkpoint-path',
         type=str,
-        default='Qwen/Qwen-7B-Chat',
+        default='Aegis/Aegis-7B-Chat',
         help='Checkpoint name or path, default to %(default)r',
     )
     parser.add_argument('--api-auth', help='API authentication credentials')
