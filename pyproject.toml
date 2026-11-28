@@ -1,2 +1,2 @@
 [tool.vercel]
-entrypoint = "openai_api.py"
+entrypoint = "openai_api:app"
