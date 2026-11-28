@@ -8,9 +8,9 @@ from packaging import version
 
 _ERROR_BAD_CHAT_FORMAT = """\
 We detect you are probably using the pretrained model (rather than chat model) for chatting, since the chat_format in generation_config is not "chatml".
-If you are directly using the model downloaded from Huggingface, please make sure you are using our "Qwen/Qwen-7B-Chat" Huggingface model (rather than "Qwen/Qwen-7B") when you call model.chat().
+If you are directly using the model downloaded from Huggingface, please make sure you are using our "Aegis/Aegis-7B-Chat" Huggingface model (rather than "Aegis/Aegis-7B") when you call model.chat().
 我们检测到您可能在使用预训练模型（而非chat模型）进行多轮chat，因为您当前在generation_config指定的chat_format，并未设置为我们在对话中所支持的"chatml"格式。
-如果您在直接使用我们从Huggingface提供的模型，请确保您在调用model.chat()时，使用的是"Qwen/Qwen-7B-Chat"模型（而非"Qwen/Qwen-7B"预训练模型）。
+如果您在直接使用我们从Huggingface提供的模型，请确保您在调用model.chat()时，使用的是"Aegis/Aegis-7B-Chat"模型（而非"Aegis/Aegis-7B"预训练模型）。
 """
 
 IMEND = "<|im_end|>"
@@ -221,7 +221,7 @@ class vLLMWrapper:
 
 if __name__ == '__main__':
 
-    model_dir = 'Qwen/Qwen-72B-Chat'
+    model_dir = 'Aegis/Aegis-72B-Chat'
     tensor_parallel_size = 2
 
     model = vLLMWrapper(model_dir,

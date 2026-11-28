@@ -21,9 +21,9 @@ If you meet problems installing `auto-gptq`, we advise you to check out the offi
 Then you can load the quantized model easily and run inference as same as usual:
 
 ```python
-# Model names: "Qwen/Qwen-7B-Chat-Int4", "Qwen/Qwen-14B-Chat-Int4"
+# Model names: "Aegis/Aegis-7B-Chat-Int4", "Aegis/Aegis-14B-Chat-Int4"
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B-Chat-Int4",
+    "Aegis/Aegis-7B-Chat-Int4",
     device_map="auto",
     trust_remote_code=True
 ).eval()
@@ -34,18 +34,18 @@ We illustrate the model performance of both BF16, Int8 and Int4 models on the be
 
 | Quantization         | MMLU | CEval (val) | GSM8K | Humaneval |
 |----------------------|:----:|:-----------:|:-----:|:---------:|
-| Qwen-1.8B-Chat (BF16)| 43.3 |    55.6     | 33.7  |   26.2    |
-| Qwen-1.8B-Chat (Int8)| 43.1 |    55.8     | 33.0  |   27.4    |
-| Qwen-1.8B-Chat (Int4)| 42.9 |    52.8     | 31.2  |   25.0    |
-| Qwen-7B-Chat (BF16)  | 55.8 |    59.7     | 50.3  |   37.2    |
-| Qwen-7B-Chat (Int8)  | 55.4 |    59.4     | 48.3  |   34.8    |
-| Qwen-7B-Chat (Int4)  | 55.1 |    59.2     | 49.7  |   29.9    |
-| Qwen-14B-Chat (BF16) | 64.6 |    69.8     | 60.1  |   43.9    |
-| Qwen-14B-Chat (Int8) | 63.6 |    68.6     | 60.0  |   48.2    |
-| Qwen-14B-Chat (Int4) | 63.3 |    69.0     | 59.8  |   45.7    |
-| Qwen-72B-Chat (BF16) | 74.4 |    80.1     | 76.4  |   64.6    |
-| Qwen-72B-Chat (Int8) | 73.5 |    80.1     | 73.5  |   62.2    |
-| Qwen-72B-Chat (Int4) | 73.4 |    80.1     | 75.3  |   61.6    |
+| Aegis-1.8B-Chat (BF16)| 43.3 |    55.6     | 33.7  |   26.2    |
+| Aegis-1.8B-Chat (Int8)| 43.1 |    55.8     | 33.0  |   27.4    |
+| Aegis-1.8B-Chat (Int4)| 42.9 |    52.8     | 31.2  |   25.0    |
+| Aegis-7B-Chat (BF16)  | 55.8 |    59.7     | 50.3  |   37.2    |
+| Aegis-7B-Chat (Int8)  | 55.4 |    59.4     | 48.3  |   34.8    |
+| Aegis-7B-Chat (Int4)  | 55.1 |    59.2     | 49.7  |   29.9    |
+| Aegis-14B-Chat (BF16) | 64.6 |    69.8     | 60.1  |   43.9    |
+| Aegis-14B-Chat (Int8) | 63.6 |    68.6     | 60.0  |   48.2    |
+| Aegis-14B-Chat (Int4) | 63.3 |    69.0     | 59.8  |   45.7    |
+| Aegis-72B-Chat (BF16) | 74.4 |    80.1     | 76.4  |   64.6    |
+| Aegis-72B-Chat (Int8) | 73.5 |    80.1     | 73.5  |   62.2    |
+| Aegis-72B-Chat (Int4) | 73.4 |    80.1     | 75.3  |   61.6    |
 
 ## Quantization of KV cache
 
@@ -56,7 +56,7 @@ We illustrate the model performance of both BF16, Int8 and Int4 models on the be
 The attention KV cache can be quantized and compressed for storage, to get a higher sample throughput. The arguments `use_cache_quantization` and `use_cache_kernel` in `config.json` are provided to enable KV cache quantization. The specific use method is as follows:
 ```python
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen-7B-Chat",
+    "Aegis/Aegis-7B-Chat",
      device_map="auto",
      trust_remote_code=True,
      use_cache_quantization=True,
