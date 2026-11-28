@@ -46,7 +46,7 @@ def create(model,
         modelInfo["user_role"] = ("<FLM_FIX_TOKEN_" + str(model.generation_config.user_token_id) + "> ") if hasattr(model.generation_config, "user_token_id") else "";
         modelInfo["bot_role"] = ("<FLM_FIX_TOKEN_" + str(model.generation_config.assistant_token_id) + ">") if hasattr(model.generation_config, "assistant_token_id") else "";
         modelInfo["history_sep"] = "";
-    if (modelInfo["model_type"] == "qwen"):
+    if (modelInfo["model_type"] == "aegis"):
         if modelInfo["chat_format"] == "chatml":
             modelInfo["im_end_id"] = tokenizer.im_end_id
             modelInfo["im_start_id"] = tokenizer.im_start_id
@@ -90,7 +90,7 @@ def create(model,
     # 1. vocab
     if (tokenizer):
         if (hasattr(tokenizer, "tokenizer")):
-            if modelInfo["model_type"] == "qwen":
+            if modelInfo["model_type"] == "aegis":
                 pass
             else:
                 tokenizer = tokenizer.tokenizer;
@@ -105,7 +105,7 @@ def create(model,
                 if (modelInfo["model_type"] == "moss"):
                     vv = [(ord(c) if c not in tokenizer.byte_decoder else tokenizer.byte_decoder[c]) for c in v];
                     llm.fastllm_lib.add_tokenizer_word_llm_model(model, vv, vocab[v], ctypes.c_float(1.0));
-                elif (modelInfo["model_type"] == "qwen"):
+                elif (modelInfo["model_type"] == "aegis"):
                     llm.fastllm_lib.add_tokenizer_word_llm_model(model, v, vocab[v], ctypes.c_float(1.0));
                 else:
                     llm.fastllm_lib.add_tokenizer_word_llm_model(model, v.encode(), vocab[v], ctypes.c_float(1.0));

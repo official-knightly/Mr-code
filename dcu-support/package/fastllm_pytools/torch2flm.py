@@ -110,7 +110,7 @@ def tofile(exportPath,
         modelInfo["user_role"] = ("<FLM_FIX_TOKEN_" + str(model.generation_config.user_token_id) + ">") if hasattr(model.generation_config, "user_token_id") else "";
         modelInfo["bot_role"] = ("<FLM_FIX_TOKEN_" + str(model.generation_config.assistant_token_id) + ">") if hasattr(model.generation_config, "assistant_token_id") else "";
         modelInfo["history_sep"] = ""
-    if modelInfo["model_type"] == "qwen":
+    if modelInfo["model_type"] == "aegis":
         if modelInfo["chat_format"] == "chatml":
             modelInfo["im_end_id"] = tokenizer.im_end_id
             modelInfo["im_start_id"] = tokenizer.im_start_id
@@ -136,7 +136,7 @@ def tofile(exportPath,
     # 1. vocab
     if (tokenizer):
         if (hasattr(tokenizer, "tokenizer")):
-            if (modelInfo['model_type'] == "qwen"):
+            if (modelInfo['model_type'] == "aegis"):
                 pass
             else:
                 tokenizer = tokenizer.tokenizer
@@ -154,7 +154,7 @@ def tofile(exportPath,
             vocab = tokenizer.get_vocab()
             fo.write(struct.pack('i', len(vocab)))
             for v in vocab.keys():
-                if (modelInfo['model_type'] == "qwen"):
+                if (modelInfo['model_type'] == "aegis"):
                     s = v
                 elif (modelInfo["model_type"] == "moss"):
                     s = [(ord(c) if c not in tokenizer.byte_decoder else tokenizer.byte_decoder[c]) for c in v]
