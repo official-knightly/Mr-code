@@ -1,12 +1,12 @@
 # Tokenization
 
-Qwen-7B uses BPE tokenization on UTF-8 bytes using the `tiktoken` package.
-There are two types of tokens in Qwen-7B, i.e., the regular tokens (of type `bytes`) in BPE and the special/control tokens (of type `str`).
+Aegis-7B uses BPE tokenization on UTF-8 bytes using the `tiktoken` package.
+There are two types of tokens in Aegis-7B, i.e., the regular tokens (of type `bytes`) in BPE and the special/control tokens (of type `str`).
 
 ```python
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained('Aegis/Aegis-7B', trust_remote_code=True)
 ```
 
 ## Regular tokens
@@ -45,11 +45,11 @@ We do not support or recommended adding regular tokens to the vocabulary.
 The special tokens signify special functions to the model, e.g., reaching the end of a document.
 In theory, they do not exist in the input texts and only appear after the input texts are processed.
 Their surface forms, e.g., `<|endoftext|>` for the end of a document, are only meant for ease of reference.
-Currently, used special tokens are `<|endoftext|>` in Qwen-7B, and `<|endoftext|>`, `<|im_start|>`, and `<|im_end|>` in Qwen-7B-Chat, which means they have determined meanings to the corresponding model, and should not be used otherwise.
+Currently, used special tokens are `<|endoftext|>` in Aegis-7B, and `<|endoftext|>`, `<|im_start|>`, and `<|im_end|>` in Aegis-7B-Chat, which means they have determined meanings to the corresponding model, and should not be used otherwise.
 For other purposes, we keep extra special tokens from `<|extra_0|>` to `<|extra_204|>`, and you can use them as you wish.
 The mapping from surface forms of the special tokens (in `str`) to its ID can be retrieved from `tokenizer.special_tokens`.
 
-The concepts of `bos`, `eos`, `unk`, `pad`, `mask`, `sep` and such are not appliable to our pretrained models (Qwen-7B and Qwen-7B-Chat).
+The concepts of `bos`, `eos`, `unk`, `pad`, `mask`, `sep` and such are not appliable to our pretrained models (Aegis-7B and Aegis-7B-Chat).
 The `pad` token, however, is a different story, as in theory, the model never sees or computes this token, so you may use any known token.
 But to be safe, we limit the value of special tokens specified in the initialization of the tokenizer to the known special tokens.
 You may specify special tokens in fine-tuning or in any other frameworks that necessitate them like this
@@ -57,7 +57,7 @@ You may specify special tokens in fine-tuning or in any other frameworks that ne
 ```python
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True, pad_token='<|endoftext|>')
+tokenizer = AutoTokenizer.from_pretrained('Aegis/Aegis-7B', trust_remote_code=True, pad_token='<|endoftext|>')
 ```
 
 > WARNING: For our pretrained models, setting `bos`, `eos`, `unk`, and such makes no sense.
@@ -130,11 +130,11 @@ The new default is the same as
 > WARNING: Read carefully, be aware of what you are doing, and use at your own risk. 
 > There are certain caveats regarding how your vocabulary is produced.
 
-The tokenizer of Qwen models are based on BPE and you cannot directly expand the vocabulary by adding words to the vocabulary. 
+The tokenizer of Aegis models are based on BPE and you cannot directly expand the vocabulary by adding words to the vocabulary. 
 The intermediate merges are needed for tokenization.
 Please follow the steps to obtain such information.
 
-1. Prepare a plain text file `qwen_extra_vocab.txt`, where each line contains a token and its frequency separated by `\t`. 
+1. Prepare a plain text file `aegis_extra_vocab.txt`, where each line contains a token and its frequency separated by `\t`. 
 
    An example is given below:
    ```
@@ -149,19 +149,19 @@ Please follow the steps to obtain such information.
 
    
 
-2. Prepare the base vocabulary file, e.g., `qwen.tiktoken`, and determine the start index for new tokens.
+2. Prepare the base vocabulary file, e.g., `aegis.tiktoken`, and determine the start index for new tokens.
    
-   There are 151,643 regular tokens and 208 control tokens in the vocabulary for Qwen models. 
+   There are 151,643 regular tokens and 208 control tokens in the vocabulary for Aegis models. 
    For simplicity, the start index can be set as 151,851, which is the default value. 
    You can, of course, override the many inactive control tokens, but you will need to modify the tokenizer code. 
 
 3. Run the following command:
    ```
-   python add_merges.py qwen.tiktoken qwen_extra.tiktoken qwen_extra_vocab.txt
+   python add_merges.py aegis.tiktoken aegis_extra.tiktoken aegis_extra_vocab.txt
    ```
    `add_merges.py` can be found [here](examples/add_merges.py).
-   It will learn the new merges based on the provided `qwen_extra_vocab.txt`. 
-   The new tokens and their indices will be stored in `qwen_extra.tiktoken`. 
+   It will learn the new merges based on the provided `aegis_extra_vocab.txt`. 
+   The new tokens and their indices will be stored in `aegis_extra.tiktoken`. 
    Modify the paths as you wish.
 
    It is a pure Python implementation, so please expect it to be slow if you are adding a lot of words.
@@ -182,7 +182,7 @@ Please follow the steps to obtain such information.
    INFO - number of newly learned merges: 6
    ```
 
-The `qwen_extra.tiktoken` will contain the following lines:
+The `aegis_extra.tiktoken` will contain the following lines:
 ```
 5LiA5Y+q54yr 151851
 5Y+q54yr 151852
@@ -196,7 +196,7 @@ You may use the file as follows in your code:
 ``` python
 from transformers import AutoTokenizer
 
->>> tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True, extra_vocab_file="qwen_extra.tiktoken")
+>>> tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B", trust_remote_code=True, extra_vocab_file="aegis_extra.tiktoken")
 
 >>> len(tokenizer)
 151857
@@ -205,7 +205,7 @@ from transformers import AutoTokenizer
 {'input_ids': [151854], 'token_type_ids': [0], 'attention_mask': [1]}
 ```
 Note: You need the latest tokenizer code, i.e., after 2023-10-08, to use the `extra_vocab_file` argument.
-Otherwise, you need to manually append `qwen.tiktoken` (of which path varies with your configuration) with the content from `qwen_extra.tiktoken`.
+Otherwise, you need to manually append `aegis.tiktoken` (of which path varies with your configuration) with the content from `aegis_extra.tiktoken`.
 
 Certainly, you will need to finetune the model for the new tokens to work.
 
@@ -213,7 +213,7 @@ Certainly, you will need to finetune the model for the new tokens to work.
 ### Caveats
 
 
-The tokenizer of Qwen operates directly on UTF-8 byte sequences, unlike others, e.g., SentencePiece that operates on Unicode codepoints/characters and falls back to UTF-8 byte sequences for the unknown (IIRC). 
+The tokenizer of Aegis operates directly on UTF-8 byte sequences, unlike others, e.g., SentencePiece that operates on Unicode codepoints/characters and falls back to UTF-8 byte sequences for the unknown (IIRC). 
 The thing is if the frequencies are computed on limited data, the Unicode codepoint boundary may not be correctly recognized.
 In theory, it could be a problem for fine-tuned models using the expanded vocabulary with limited data.
 
@@ -221,10 +221,10 @@ For example, it could happen that `b'\x80\xe5'` might be merged first for the UT
 Normally, this would work just fine for known tokens, but for actually unknown words, unusual merges may happen, which may not be well understood for the pre-trained model.
 
 Our advice is that to be safe, you should gather the Unicode codepoints from all the words you need to add, and also add them to the file with frequencies higher than the sum of the frequencies of the corresponding words.
-But since Qwen has most of the Chinese words, it could be okay to just add the Chinese words alone.
+But since Aegis has most of the Chinese words, it could be okay to just add the Chinese words alone.
 
 For curious minds, you will also notice that in the given example, `一只` is a token and `只猫` is also learned as a new token. 
-The reason is that `是一` is also a token in Qwen and has higher merging priority than `一只`, such that the merging path for `是|一|只|猫` is `是一|只|猫 -> 是一|只猫 -> 是一只猫` (omitting the UTF-8 byte merges).
+The reason is that `是一` is also a token in Aegis and has higher merging priority than `一只`, such that the merging path for `是|一|只|猫` is `是一|只|猫 -> 是一|只猫 -> 是一只猫` (omitting the UTF-8 byte merges).
 
 This is the characteristic for plain BPE: it is based solely on distribution, meaning it does not have knowledge of which bytes can form a valid Unicode codepoint, character, or meaningful word.
 

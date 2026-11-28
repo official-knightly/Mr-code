@@ -2,13 +2,13 @@
 
 > 注：作为术语的“tokenization”在中文中尚无共识的概念对应，本文档采用英文表达以利说明。
 
-Qwen-7B采用UTF-8字节级别的BPE tokenization方式，并依赖`tiktoken`这一高效的软件包执行分词。
-Qwen-7B中有两类token，即源于BPE、`bytes`类型的普通token和特殊指定、`str`类型的特殊token。
+Aegis-7B采用UTF-8字节级别的BPE tokenization方式，并依赖`tiktoken`这一高效的软件包执行分词。
+Aegis-7B中有两类token，即源于BPE、`bytes`类型的普通token和特殊指定、`str`类型的特殊token。
 
 ```python
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained('Aegis/Aegis-7B', trust_remote_code=True)
 ```
 
 ## 普通token
@@ -48,11 +48,11 @@ tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True
 特殊token用以给模型传递特殊信号，如到达文本末尾。
 理论上，输入文本中不包含特殊token，它们仅在tokenization后由开发者手动加入。
 特殊token的字面表达，如表示文本结束的`<|endoftext|>`，仅便于指代特殊token，不意味着它们在输入文本空间中。
-目前，训练中使用的、已经有固定含义的、不应做它用的特殊token，Qwen-7B中有`<|endoftext|>`，Qwen-7B-Chat中有`<|endoftext|>`、`<|im_start|>`以及`<|im_end|>`。
+目前，训练中使用的、已经有固定含义的、不应做它用的特殊token，Aegis-7B中有`<|endoftext|>`，Aegis-7B-Chat中有`<|endoftext|>`、`<|im_start|>`以及`<|im_end|>`。
 但词表中也留有供扩展的特殊token位，可用`<|extra_0|>`到`<|extra_204|>`来指代。
 `str`类型的特殊token字面表达到id的映射，可以通过`tokenizer.special_tokens`获取。
 
-对于提供的模型参数(Qwen-7B和Qwen-7B-Chat)而言，诸如`bos`、`eos`、`unk`、`pad`、`mask`、`sep`等的特殊token的概念并不适用。
+对于提供的模型参数(Aegis-7B和Aegis-7B-Chat)而言，诸如`bos`、`eos`、`unk`、`pad`、`mask`、`sep`等的特殊token的概念并不适用。
 特例是`pad`，由于这个token理论上并不参与模型计算，所以可以使用任意token表达这一概念。
 但保险起见，目前可在tokenizer初始化时设定的特殊token，仅可使用已知的特殊token字面表达，即`<|endoftext|>`、`<|im_start|>`、`<|im_end|>`和`<|extra_0|>`到`<|extra_204|>`。
 对于微调或者其它需要这些token才能运行的框架，可以如下配置
@@ -60,7 +60,7 @@ tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True
 ```python
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True, pad_token='<|endoftext|>')
+tokenizer = AutoTokenizer.from_pretrained('Aegis/Aegis-7B', trust_remote_code=True, pad_token='<|endoftext|>')
 ```
 
 > 注意: 对于提供的训练好的模型，设置诸如`bos`、`eos`、`unk`之类的没有意义，即模型不需要这些概念。
@@ -133,13 +133,13 @@ To disable this check for all special tokens, pass `disallowed_special=()`.
 > 特别提醒：请仔细阅读本部分的说明，理解每一步操作，并承担可能的后果。
 > 由于词表扩展部分由您提供，产出方式的差异可能导致特定的不兼容情况，请审慎操作。
 
-Qwen系列模型的tokenizer基于BPE方案提取文本中的token。
+Aegis系列模型的tokenizer基于BPE方案提取文本中的token。
 从UTF-8编码的字节开始（每个字节都可以是一个token），两两token合并成为新token，直至不能再合并出新的token为止。
-由于词表同时还记录了token的合并方式，直接向词表中添加词可能对Qwen的tokenizer并不适用，即通过已有的token可能合并不出来您添加词。
+由于词表同时还记录了token的合并方式，直接向词表中添加词可能对Aegis的tokenizer并不适用，即通过已有的token可能合并不出来您添加词。
 
 因而，请参照以下步骤获得合并信息：
 
-1. 准备一个纯文本文件，例如名为`qwen_extra_vocab.txt`，每行一个待添加的词和它的频率，中间用制表符`\t`分隔。
+1. 准备一个纯文本文件，例如名为`aegis_extra_vocab.txt`，每行一个待添加的词和它的频率，中间用制表符`\t`分隔。
 
    以下是一个文件的例子：
    ```
@@ -152,19 +152,19 @@ Qwen系列模型的tokenizer基于BPE方案提取文本中的token。
    ```
    频率是必需的，用来计算合并的优先级。
 
-2. 准备基础的词表文件，例如`qwen.tiktoken`，并确认新加入token的起始索引。
+2. 准备基础的词表文件，例如`aegis.tiktoken`，并确认新加入token的起始索引。
 
-   Qwen模型词表中有151,643个普通token，有208个特殊token。
+   Aegis模型词表中有151,643个普通token，有208个特殊token。
    简单起见，起始索引可以设置为151,851（默认值）。
    您可以覆写不起效的特殊token，但您需要相应的修改tokenizer代码。
 
 3. 运行以下命令：
    ```
-   python add_merges.py qwen.tiktoken qwen_extra.tiktoken qwen_extra_vocab.txt
+   python add_merges.py aegis.tiktoken aegis_extra.tiktoken aegis_extra_vocab.txt
    ```
    `add_merges.py`代码在[GitHub存储库](examples/add_merges.py)中。
-   基于提供的`qwen_extra_vocab.txt`，该脚本将学习新的token合并方式。
-   新token及其索引将存储在`qwen_extra.tiktoken`文件中。
+   基于提供的`aegis_extra_vocab.txt`，该脚本将学习新的token合并方式。
+   新token及其索引将存储在`aegis_extra.tiktoken`文件中。
    您可以视情况修改有关路径。
 
    由于是纯Python实现，如果您添加了非常多的词，预期会花费较多时间。
@@ -185,7 +185,7 @@ Qwen系列模型的tokenizer基于BPE方案提取文本中的token。
    INFO - number of newly learned merges: 6
    ```
 
-`qwen_extra.tiktoken`会包含以下内容：
+`aegis_extra.tiktoken`会包含以下内容：
 ```
 5LiA5Y+q54yr 151851
 5Y+q54yr 151852
@@ -199,7 +199,7 @@ Qwen系列模型的tokenizer基于BPE方案提取文本中的token。
 ``` python
 from transformers import AutoTokenizer
 
->>> tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B", trust_remote_code=True, extra_vocab_file="qwen_extra.tiktoken")
+>>> tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B", trust_remote_code=True, extra_vocab_file="aegis_extra.tiktoken")
 
 >>> len(tokenizer)
 151857
@@ -208,13 +208,13 @@ from transformers import AutoTokenizer
 {'input_ids': [151854], 'token_type_ids': [0], 'attention_mask': [1]}
 ```
 
-注意：您需要使用2023年10月8日后的tokenizer代码才能传递`extra_vocab_file`参数。如是其它情况，您可以将`qwen_extra.tiktoken`内容复制粘贴到`qwen.tiktoken`内容后面。
+注意：您需要使用2023年10月8日后的tokenizer代码才能传递`extra_vocab_file`参数。如是其它情况，您可以将`aegis_extra.tiktoken`内容复制粘贴到`aegis.tiktoken`内容后面。
 
 您需要微调模型才能使新的token发挥作用。
 
 ### 注意事项
 
-Qwen的tokenizer是直接从UTF-8编码的字节序列开始处理的，这与其它tokenizer比如SentencePiece是很不一样的。SentencePiece是从Unicode码位（可以理解为一个字符）开始处理，遇到未登录的再用UTF-8编码成字节。
+Aegis的tokenizer是直接从UTF-8编码的字节序列开始处理的，这与其它tokenizer比如SentencePiece是很不一样的。SentencePiece是从Unicode码位（可以理解为一个字符）开始处理，遇到未登录的再用UTF-8编码成字节。
 从字节开始的一个潜在问题是如果频率信息不够准确，比如频率信息是在很少数据上统计得到的，Unicode码位按UTF-8编码成字节后的边界可能会出现差错。
 理论上，如果模型微调数据量不足，使用扩展后的词表也可能出现意外问题。
 
@@ -223,10 +223,10 @@ Qwen的tokenizer是直接从UTF-8编码的字节序列开始处理的，这与�
 这些token序列可能对于预训练模型是陌生的。
 
 我们的建议是保险起见，您最好先收集待添加词中的所有Unicode码位，然后单独指定它们的频率大于其所构成词的频率之和。
-不过由于Qwen的tokenizer已包含了大多数中文字，对于中文词的话，不添加中文字的频率，大部分情况下是可行的。
+不过由于Aegis的tokenizer已包含了大多数中文字，对于中文词的话，不添加中文字的频率，大部分情况下是可行的。
 
 您可能已经发现了，在提供的例子中，`一只`已经是登录过的token了，但`只猫`还是学习成为了一个新token，出现了“交叉”。
-原因是在Qwen中`是一`也是一个已知token，且其频率/优先级比`一只`要高，因而对于`是|一|只|猫`这个片段，合并的次序是`是一|只|猫 -> 是一|只猫 -> 是一只猫`（省略UTF-8字节级别的合并）。
+原因是在Aegis中`是一`也是一个已知token，且其频率/优先级比`一只`要高，因而对于`是|一|只|猫`这个片段，合并的次序是`是一|只|猫 -> 是一|只猫 -> 是一只猫`（省略UTF-8字节级别的合并）。
 
 这是常规BPE的特性，其完全基于分布，并不知道哪些字节可以构成合法的Unicode码位、合法的字符或是词。
 

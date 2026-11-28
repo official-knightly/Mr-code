@@ -1,12 +1,12 @@
 # トークン化
 
-Qwen-7B は `tiktoken` パッケージを使用して、UTF-8 バイトを BPE トークン化します。
-Qwen-7B には 2 種類のトークンがあります。BPE の通常のトークン (`bytes` 型) と特殊/制御トークン (`str` 型) です。
+Aegis-7B は `tiktoken` パッケージを使用して、UTF-8 バイトを BPE トークン化します。
+Aegis-7B には 2 種類のトークンがあります。BPE の通常のトークン (`bytes` 型) と特殊/制御トークン (`str` 型) です。
 
 ```python
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained('Aegis/Aegis-7B', trust_remote_code=True)
 ```
 
 ## 通常のトークン
@@ -45,11 +45,11 @@ UTF-8 のデコードエラーに遭遇することがあり、そのエラー�
 特別なトークンは、例えば文書の最後に到達するなど、モデルにとって特別な機能を意味します。
 理論的には、これらは入力テキストには存在せず、入力テキストが処理された後にのみ現れます。
 例えば、文書の終わりを表す `<|endoftext|>` のような表面的な形は、参照を容易にするためだけのものである。
-現在、Qwen-7B では `<|endoftext|>` が、Qwen-7B-Chat では `<|endoftext|>`, `<|im_start|>`, `<|im_end|>` が特殊トークンとして使われています。
+現在、Aegis-7B では `<|endoftext|>` が、Aegis-7B-Chat では `<|endoftext|>`, `<|im_start|>`, `<|im_end|>` が特殊トークンとして使われています。
 他の目的のために、`<|extra_0|>` から `<|extra_204|>` までの特別なトークンを保持しています。
 特殊トークンの表面形式 (`str` 内) から ID へのマッピングは `tokenizer.special_tokens` から取得できます。
 
-`bos`、`eos`、`unk`、`pad`、`mask`、`sep` などの概念は学習済みモデル（Qwen-7B と Qwen-7B-Chat）には適用できません。
+`bos`、`eos`、`unk`、`pad`、`mask`、`sep` などの概念は学習済みモデル（Aegis-7B と Aegis-7B-Chat）には適用できません。
 しかし、`pad` トークンは話が別です。理論的には、モデルがこのトークンを見たり計算したりすることはないので、既知のトークンを使用することができます。
 しかし、安全のために、トークナイザーの初期化で指定する特別なトークンの値は、既知の特別なトークンに限定します。
 微調整やその他のフレームワークで特別なトークンを必要とする場合は、次のように指定できます
@@ -57,7 +57,7 @@ UTF-8 のデコードエラーに遭遇することがあり、そのエラー�
 ```python
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen-7B', trust_remote_code=True, pad_token='<|endoftext|>')
+tokenizer = AutoTokenizer.from_pretrained('Aegis/Aegis-7B', trust_remote_code=True, pad_token='<|endoftext|>')
 ```
 
 > 警告: 私たちが事前に学習したモデルでは、`bos`, `eos`, `unk` などを設定しても意味がありません。
