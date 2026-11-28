@@ -1,73 +1,75 @@
-<p align="center"><img src="assets/aegis-logo.svg" width="220" alt="Aegis logo"></p>
+<p align="center">
+  <img src="assets/aegis-logo.webp" width="220" alt="Mr Aegis logo">
+</p>
 
-<h1 align="center">AEGIS</h1>
-<p align="center"><strong>An open-source language-model research and training codebase.</strong></p>
+<h1 align="center">MR AEGIS</h1>
+<p align="center"><strong>An open-source AI research, language-model development, and training project.</strong></p>
 
-Aegis is being developed as an independent AI project. This repository currently contains the imported Qwen research/codebase, rebranded where appropriate, plus an Aegis-owned training workflow. The upstream implementation and its license/notice files are retained; see [LICENSE](LICENSE) and [NOTICE](NOTICE).
+# Mr Aegis
 
-## Current status
+Mr Aegis is an AI project focused on building and improving a capable language assistant for conversation, coding, problem-solving, reasoning, and tool-assisted tasks.
 
-- [x] Imported all 144 tracked source files from the upstream Qwen repository snapshot.
-- [x] Added the Aegis logo and this project README.
-- [x] Added a local-data supervised fine-tuning pipeline.
-- [ ] Verify every renamed identifier and run the full test suite.
-- [ ] Prepare and validate a properly licensed training dataset.
-- [ ] Train, evaluate, and publish Aegis model checkpoints.
+The repository provides a development foundation for working with language models: model inference, fine-tuning, dataset preparation, evaluation, tokenizer utilities, and API-compatible interfaces. The goal is to develop Mr Aegis into a reliable assistant that can understand instructions, explain ideas clearly, help write and debug code, and use tools when appropriate.
 
-**Important:** copying code does not copy pretrained model weights or train a model. No model is claimed to have been trained by this repository yet. Training requires a compatible base-model checkpoint, a real dataset, and sufficient GPU memory/compute.
+## What Mr Aegis is designed to do
 
-## Training (local, no hosted AI API)
+- **Conversation and instruction following** — understand questions and respond with useful, structured answers.
+- **Coding assistance** — explain programming concepts, generate code, and help debug errors.
+- **Reasoning and problem solving** — work through multi-step tasks and explain conclusions.
+- **Model training and fine-tuning** — support experiments using curated datasets and compatible model checkpoints.
+- **Evaluation** — measure model behavior and track improvements with repeatable tests.
+- **Tool and API integration** — provide interfaces that applications can use to communicate with the model.
 
-The training pipeline uses Hugging Face Transformers, Datasets, and PyTorch locally. It does not call Ollama or a paid model API.
+## Development
 
-1. Create a JSONL dataset where each line contains `{"text":"your training example"}`.
-2. Review data quality, remove private/sensitive material, and confirm you have permission to use it.
-3. Install dependencies from [training/requirements.txt](training/requirements.txt).
-4. Set `AEGIS_BASE_MODEL` to a local compatible causal-language-model checkpoint and `AEGIS_TRAIN_FILE` to your JSONL file.
-5. Run `python training/train.py`.
+Mr Aegis is under active development. Its capabilities depend on the model checkpoint, training data, runtime configuration, and evaluation results used in a given build. A training script or dataset alone does not mean that a model has already completed training.
 
-Example (Linux/macOS):
+### Prepare training data
+
+The seed instruction dataset is located at [training/aegis_seed.jsonl](training/aegis_seed.jsonl). It is a small starter dataset for pipeline checks and early experiments, not a complete pretraining corpus.
+
+Validate the dataset:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python training/validate_dataset.py training/aegis_seed.jsonl
+```
+
+### Fine-tune a local model checkpoint
+
+Install the training dependencies:
+
+```bash
 pip install -r training/requirements.txt
-export AEGIS_BASE_MODEL=/path/to/local/base-model
-export AEGIS_TRAIN_FILE=/path/to/train.jsonl
+```
+
+Set the paths to a compatible local causal-language-model checkpoint and the training dataset, then run the training script.
+
+Linux/macOS:
+
+```bash
+export AEGIS_BASE_MODEL=/path/to/local/model
+export AEGIS_TRAIN_FILE=training/aegis_seed.jsonl
 python training/train.py
 ```
 
 Windows PowerShell:
 
 ```powershell
-py -m venv .venv
-.venv\\Scripts\\Activate.ps1
-pip install -r training/requirements.txt
-$env:AEGIS_BASE_MODEL="D:\\models\\base-model"
-$env:AEGIS_TRAIN_FILE="D:\\data\\train.jsonl"
+$env:AEGIS_BASE_MODEL="D:\models\base-model"
+$env:AEGIS_TRAIN_FILE="training/aegis_seed.jsonl"
 python training/train.py
 ```
 
-The default script is a small smoke-test configuration, not a claim of large-scale training. Tune batch size, sequence length, precision, and LoRA settings to match your GPU. Do not expect practical LLM training on an 8 GB RAM laptop.
+The training workflow requires a compatible local checkpoint and suitable compute resources. Training quality depends on the size, quality, diversity, and licensing of the data, as well as the model and hardware configuration. Review dataset sources and permissions before use.
 
-## Repository structure
+## Project principles
 
-- `training/` — local supervised fine-tuning pipeline
-- `eval/` — evaluation utilities
-- `examples/` — usage and tool-use examples
-- `docker/` — container build and demo scripts
-- `assets/` — documentation images and Aegis logo
+- Build useful capabilities through measurable development and evaluation.
+- Be transparent about what has and has not been trained or tested.
+- Use properly licensed datasets and respect third-party notices.
+- Keep model behavior reliable, understandable, and safe.
+- Improve the project incrementally without claiming unsupported capabilities.
 
-## Dataset format
+## License
 
-One JSON object per line:
-
-```json
-{"text":"User: Explain gravity simply.\\nAssistant: Gravity is the attraction between objects with mass."}
-```
-
-Keep a dataset card recording source, license, language, collection date, filtering, and intended use. Never treat an empty placeholder dataset as training data.
-
-## Attribution
-
-This repository includes upstream code and documentation. Preserve all applicable copyright, attribution, and license notices. Aegis branding does not imply ownership of upstream work or affiliation with the original authors.
+Original Mr Aegis contributions are covered by the Apache License 2.0 notice in [LICENSE.AEGIS](LICENSE.AEGIS). This repository also contains third-party components; their applicable copyright, attribution, and license terms remain in force. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
