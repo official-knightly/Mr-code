@@ -1,4 +1,4 @@
-# DCU 架构基于 fastllm 推理 Qwen 模型
+# DCU 架构基于 fastllm 推理 Aegis 模型
 
 
 ## 环境配置
@@ -38,15 +38,15 @@ python setup.py install
 
 ### 模型转换
 
-首先参考Qwen README下载官方模型，并通过如下方式将模型转换为 fastllm 用于推理的形式：
+首先参考Aegis README下载官方模型，并通过如下方式将模型转换为 fastllm 用于推理的形式：
 
 - 通过`pip install -r requirements.txt`安装模型转换所需依赖
 
-- 如果使用已经下载完成的模型或者自己finetune的模型需要修改qwen2flm.py文件中创建tokenizer, model时的模型存放路径
+- 如果使用已经下载完成的模型或者自己finetune的模型需要修改aegis2flm.py文件中创建tokenizer, model时的模型存放路径
 
 ```
 # 在本工程目录下执行：
-python3 qwen2flm.py qwen-7b-fp16.bin float16 # 导出fp16模型，参数为导出的模型路径
+python3 aegis2flm.py aegis-7b-fp16.bin float16 # 导出fp16模型，参数为导出的模型路径
 ```
 
 
@@ -54,11 +54,11 @@ python3 qwen2flm.py qwen-7b-fp16.bin float16 # 导出fp16模型，参数为导�
 
 ```
 # 命令行聊天程序，使用了模型创建以及流式对话效果
-python cli_demo.py -p qwen-7b-fp16.bin
+python cli_demo.py -p aegis-7b-fp16.bin
 
 # batch推理程序
-python cli_demo_batch.py -p qwen-7b-fp16.bin
+python cli_demo_batch.py -p aegis-7b-fp16.bin
 
 # 简易webui，需要先安装streamlit-chat
-streamlit run web_demo.py qwen-7b-fp16.bin 
+streamlit run web_demo.py aegis-7b-fp16.bin 
 ```
