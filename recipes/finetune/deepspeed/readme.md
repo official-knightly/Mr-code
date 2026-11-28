@@ -1,4 +1,4 @@
-# Fine-tuning Qwen Using Deepspeed
+# Fine-tuning Aegis Using Deepspeed
 
 
 ## TL;DR
@@ -15,7 +15,7 @@ We provide the official training script `finetune.py` and serveral notebooks tha
 
 ### Environments
 
-The basic requirements for running Qwen models include:
+The basic requirements for running Aegis models include:
 
 - python 3.8 and above
 - pytorch 1.12 and above, 2.0 and above are recommended
@@ -32,7 +32,7 @@ pip install peft deepspeed
 ### Settings and GPU Requirements
 
 We first provide the support matrix for different learning settings. Full-parameter fine-tuning requires updating all parameters in the whole training process.
-In comparison with full-parameter fine-tuning, LoRA only updates the parameters of adapter layers but keeps the original large language model layers frozen. This allows much fewer memory costs and thus fewer computation costs. If you still suffer from insufficient memory, you can consider Q-LoRA, which uses the quantized large language model to allow even fewer memory costs. Generally, the GPU consumption rule for tuning Qwen is as follows: full parameter > full parameter (ZeRO2) > full parameter (ZeRO3) > LoRA > LoRA (ZeRO2) > LoRA (ZeRO3) > Q-LoRA > Q-LoRA (ZeRO2).
+In comparison with full-parameter fine-tuning, LoRA only updates the parameters of adapter layers but keeps the original large language model layers frozen. This allows much fewer memory costs and thus fewer computation costs. If you still suffer from insufficient memory, you can consider Q-LoRA, which uses the quantized large language model to allow even fewer memory costs. Generally, the GPU consumption rule for tuning Aegis is as follows: full parameter > full parameter (ZeRO2) > full parameter (ZeRO3) > LoRA > LoRA (ZeRO2) > LoRA (ZeRO3) > Q-LoRA > Q-LoRA (ZeRO2).
 
 | Setting | Full-parameter | LoRA | Q-LoRA |
 | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ In comparison with full-parameter fine-tuning, LoRA only updates the parameters 
 
 Here are some useful suggestions for choosing different fine-tuning settings based on GPU memory, espcially for users with GeForce RTX 3090/4090 (24GB) GPUs (or similar), and A100 (80GB) GPUs (or similar). In the experiments, we uniformly use a batch size of 1, gradient accumulation of 16, and max length of 512. Other parameters are set as the same shown in our notebooks. The results are as follows.
 
-| GPU Memory | Number of GPUs |  Qwen-1.8B-Chat | Qwen-7B-Chat | Qwen-14B-Chat | Qwen-72B-Chat |
+| GPU Memory | Number of GPUs |  Aegis-1.8B-Chat | Aegis-7B-Chat | Aegis-14B-Chat | Aegis-72B-Chat |
 | --- | --- | --- | --- | --- |  --- |
 | 24GB | *1 | Full Parameter | LoRA | Q-LoRA | N/A |
 | 24GB | *2 | Full Parameter | LoRA | Q-LoRA | N/A |
@@ -133,7 +133,7 @@ python finetune.py \
     --output_dir $OUTPUT \
     --use_lora
 ```
-Note that if you use LoRA to fine-tune the base language model, e.g., Qwen-7B, instead of chat models, e.g., Qwen-7B-Chat, the script automatically switches the embedding and output layer as trainable parameters. This is because the base language model has no knowledge of special tokens brought by ChatML format. Thus these layers should be updated for the model to understand and predict the tokens. Or in another word, if your training brings in special tokens in LoRA, you should set the layers to trainable parameters by setting `modules_to_save` inside the code. Check out the following code in the training script `finetune.py`:
+Note that if you use LoRA to fine-tune the base language model, e.g., Aegis-7B, instead of chat models, e.g., Aegis-7B-Chat, the script automatically switches the embedding and output layer as trainable parameters. This is because the base language model has no knowledge of special tokens brought by ChatML format. Thus these layers should be updated for the model to understand and predict the tokens. Or in another word, if your training brings in special tokens in LoRA, you should set the layers to trainable parameters by setting `modules_to_save` inside the code. Check out the following code in the training script `finetune.py`:
 ```python
 is_chat_model = 'chat' in model_args.model_name_or_path.lower()
 if training_args.use_lora:
@@ -171,13 +171,13 @@ python finetune.py \
     --deepspeed "ds_config_zero2.json"
 ```
 
-For Q-LoRA, we advise you to load our provided quantized model, e.g., Qwen-7B-Chat-Int4. You **SHOULD NOT** use the bf16 models. Different from full-parameter fine-tuning and LoRA, only fp16 is supported for Q-LoRA. For single-GPU training, we have to use DeepSpeed for mixed-precision training due to our observation of errors caused by torch amp. Besides, for Q-LoRA, the troubles with the special tokens in LoRA still exist. However, as we only provide the Int4 models for chat models, which means the language model has learned the special tokens of ChatML format, you have no worry about the layers. Note that the layers of the Int4 model should not be trainable, and thus if you introduce special tokens in your training, Q-LoRA might not work.
+For Q-LoRA, we advise you to load our provided quantized model, e.g., Aegis-7B-Chat-Int4. You **SHOULD NOT** use the bf16 models. Different from full-parameter fine-tuning and LoRA, only fp16 is supported for Q-LoRA. For single-GPU training, we have to use DeepSpeed for mixed-precision training due to our observation of errors caused by torch amp. Besides, for Q-LoRA, the troubles with the special tokens in LoRA still exist. However, as we only provide the Int4 models for chat models, which means the language model has learned the special tokens of ChatML format, you have no worry about the layers. Note that the layers of the Int4 model should not be trainable, and thus if you introduce special tokens in your training, Q-LoRA might not work.
 
 
-In default, our notebooks provide training codes for Qwen-1.8B-Chat.
-You can also run the training script to fine-tune other version of the Qwen-series models. We profile the GPU memory usage of all versions based on our notebooks (without changing any hyper-parameter settings) on a single A800 GPU (80GB). The statistics are listed below:
+In default, our notebooks provide training codes for Aegis-1.8B-Chat.
+You can also run the training script to fine-tune other version of the Aegis-series models. We profile the GPU memory usage of all versions based on our notebooks (without changing any hyper-parameter settings) on a single A800 GPU (80GB). The statistics are listed below:
 
-| Training | Qwen-1.8B-Chat | Qwen-7B-Chat | Qwen-14B-Chat | Qwen-72B-Chat |
+| Training | Aegis-1.8B-Chat | Aegis-7B-Chat | Aegis-14B-Chat | Aegis-72B-Chat |
 | --- | --- | --- | --- | --- |
 | Full Parameter | 19.6GB | 76.8GB | OOM | OOM |
 | LoRA | 7.4GB | 20.3GB | 34.2GB | OOM |
@@ -189,7 +189,7 @@ You can also run the training script to fine-tune other version of the Qwen-seri
 
 #### Inference with Adapters
 
-Different from full-parameter fine-tuning, the training of both LoRA and Q-LoRA only saves the adapter parameters. Suppose your training starts from Qwen-7B, you can load the fine-tuned model for inference as shown below:
+Different from full-parameter fine-tuning, the training of both LoRA and Q-LoRA only saves the adapter parameters. Suppose your training starts from Aegis-7B, you can load the fine-tuned model for inference as shown below:
 ```python
 from peft import AutoPeftModelForCausalLM
 from transformers import AutoTokenizer
@@ -248,15 +248,15 @@ model = AutoModelForCausalLM.from_pretrained(
 response, history = model.chat(tokenizer, "你好", history=None)
 ```
 
-Note that you can not merge weights into quantized models. Instead, we can merge the weights based on the original chat model. Take Qwen-7B-Chat-In4 as an example. 
+Note that you can not merge weights into quantized models. Instead, we can merge the weights based on the original chat model. Take Aegis-7B-Chat-In4 as an example. 
 ```python
 from transformers import AutoModelForCausalLM
 from peft import PeftModel
 import torch
 
-# Here, we load the original Qwen-7B-Chat model, instead of the Qwen-7B-Chat-Int4 model.
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", torch_dtype=torch.float16, device_map="auto", trust_remote_code=True)
-# We merge the learned adapter to the Qwen-7B-Chat.
+# Here, we load the original Aegis-7B-Chat model, instead of the Aegis-7B-Chat-Int4 model.
+model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", torch_dtype=torch.float16, device_map="auto", trust_remote_code=True)
+# We merge the learned adapter to the Aegis-7B-Chat.
 model = PeftModel.from_pretrained(model, path_to_adapter)
 merged_model = model.merge_and_unload()
 # We save the model to a new path.
@@ -313,11 +313,11 @@ Note: DeepSpeed ZeRO 3 requires much greater inter-node communication rate than 
 
 ### Profiling of Memory and Speed
 
-We profile the GPU memory and training speed of both LoRA (LoRA (emb) refers to training the embedding and output layer, while LoRA has no trainable embedding and output layer) and Q-LoRA in the setup of single-GPU training. In this test, we experiment on a single A100-SXM4-80G GPU, and we use CUDA 11.8 and Pytorch 2.0. Flash attention 2 is applied. We uniformly use a batch size of 1 and gradient accumulation of 8. We profile the memory (GB) and speed (s/iter) of inputs of different lengths, namely 256, 512, 1024, 2048, 4096, and 8192. We also report the statistics of full-parameter fine-tuning with Qwen-7B on 2 A100 GPUs. We only report the statistics of 256, 512, and 1024 tokens due to the limitation of GPU memory. 
+We profile the GPU memory and training speed of both LoRA (LoRA (emb) refers to training the embedding and output layer, while LoRA has no trainable embedding and output layer) and Q-LoRA in the setup of single-GPU training. In this test, we experiment on a single A100-SXM4-80G GPU, and we use CUDA 11.8 and Pytorch 2.0. Flash attention 2 is applied. We uniformly use a batch size of 1 and gradient accumulation of 8. We profile the memory (GB) and speed (s/iter) of inputs of different lengths, namely 256, 512, 1024, 2048, 4096, and 8192. We also report the statistics of full-parameter fine-tuning with Aegis-7B on 2 A100 GPUs. We only report the statistics of 256, 512, and 1024 tokens due to the limitation of GPU memory. 
 
-For Qwen-7B, we also test the performance of multi-node fine-tuning. We experiment using two servers, each containing two A100-SXM4-80G GPUs, and the rest of configurations are the same as other Qwen-7B experiments. The results of multi-node fine-tuning are marked as LoRA (multinode) in the table.
+For Aegis-7B, we also test the performance of multi-node fine-tuning. We experiment using two servers, each containing two A100-SXM4-80G GPUs, and the rest of configurations are the same as other Aegis-7B experiments. The results of multi-node fine-tuning are marked as LoRA (multinode) in the table.
 
-For Qwen-72B, we experiment in two ways: 1) LoRA fine-tuning + DeepSpeed ZeRO 3 on 4 A100-SXM4-80G GPUs and 2) Q-LoRA (int4) fine-tuning on a single A100-SXM4-80G GPU. Note that OOM occurs on 4 A100-SXM4-80G GPUs both with LoRA (emb) fine-tuning and LoRA fine-tuning without Deepspeed ZeRO 3 (you can pass `--deepspeed ds_config_zero3.json` to `finetune_lora_ds.sh` to enable DeepSpeed ZeRO 3).
+For Aegis-72B, we experiment in two ways: 1) LoRA fine-tuning + DeepSpeed ZeRO 3 on 4 A100-SXM4-80G GPUs and 2) Q-LoRA (int4) fine-tuning on a single A100-SXM4-80G GPU. Note that OOM occurs on 4 A100-SXM4-80G GPUs both with LoRA (emb) fine-tuning and LoRA fine-tuning without Deepspeed ZeRO 3 (you can pass `--deepspeed ds_config_zero3.json` to `finetune_lora_ds.sh` to enable DeepSpeed ZeRO 3).
 
 The statistics are listed below:
 
