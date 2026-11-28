@@ -1,2 +1,6 @@
-"""Vercel ASGI entrypoint; re-exports the existing FastAPI application."""
-from openai_api import app
+"""Vercel ASGI entrypoint for the existing Mr Aegis API."""
+from fastapi import FastAPI
+from openai_api import app as aegis_api
+
+app = FastAPI()
+app.mount("/", aegis_api)
