@@ -139,7 +139,7 @@ class QWenAgent(Agent):
             self.tokenizer = tokenizer
             self.model = model
         else:
-            checkpoint = "Qwen/Qwen-7B-Chat"
+            checkpoint = "Aegis/Aegis-7B-Chat"
             self.tokenizer = AutoTokenizer.from_pretrained(
                 checkpoint, trust_remote_code=True
             )
@@ -286,7 +286,7 @@ if __name__ == "__main__":
         "--checkpoint-path",
         type=str,
         help="Checkpoint path",
-        default="Qwen/Qwen-7B-Chat",
+        default="Aegis/Aegis-7B-Chat",
     )
     parser.add_argument("-s", "--seed", type=int, default=1234, help="Random seed")
     """Provide extra arguments required for tasks."""

@@ -206,13 +206,13 @@ def main():
         type=str,
         help="Path for words needed adding, each line is a word and its frequency separated by \\t",
     )
-    # if the extended vocabulary is for fine-tuning, you better set those correctly (the default is for qwen.tiktoken)
+    # if the extended vocabulary is for fine-tuning, you better set those correctly (the default is for aegis.tiktoken)
     # if the extended vocabulary is for pretraining from the start, no need
     parser.add_argument(
         "--start_id",
         type=int,
         default=151851,
-        help="The start id for new merges. For Qwen tokenizer, this should be 151851 (skipping the existing special tokens)",
+        help="The start id for new merges. For Aegis tokenizer, this should be 151851 (skipping the existing special tokens)",
     )
 
     args = parser.parse_args()

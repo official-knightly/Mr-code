@@ -13,26 +13,26 @@ CodeFileType = ["py"] # 目前仅测试过对python文件生成注释
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--path', type=str, default='Qwen-7B/eval/evaluate_ceval.py')
+    parser.add_argument('--path', type=str, default='Aegis-7B/eval/evaluate_ceval.py')
     parser.add_argument('--regenerate', action='store_true', default=False) #如果已经生成过注释，默认不会重新生成
     args = parser.parse_args()
     return args
 
 class QWenChat():
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
+        self.tokenizer = AutoTokenizer.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True)
 
         # use bf16
-        # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
+        # model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, bf16=True).eval()
         # use fp16
-        # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
+        # model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True, fp16=True).eval()
         # use cpu only
-        # model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
+        # model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="cpu", trust_remote_code=True).eval()
         # use auto mode, automatically select precision based on the device.
-        self.model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen-7B-Chat", device_map="auto", trust_remote_code=True).eval()
+        self.model = AutoModelForCausalLM.from_pretrained("Aegis/Aegis-7B-Chat", device_map="auto", trust_remote_code=True).eval()
         
         # Specify hyperparameters for generation
-        self.model.generation_config = GenerationConfig.from_pretrained("Qwen/Qwen-7B-Chat", trust_remote_code=True)
+        self.model.generation_config = GenerationConfig.from_pretrained("Aegis/Aegis-7B-Chat", trust_remote_code=True)
         self.history = None
         
     def chat(self, query, system = ""):
