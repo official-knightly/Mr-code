@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/aegis-logo.webp" width="220" alt="Mr Aegis logo">
+  <img src="assets/image_290e2ad0.jpg" width="220" alt="Mr Aegis logo">
 </p>
 
 <h1 align="center">MR AEGIS</h1>
