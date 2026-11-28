@@ -7,6 +7,7 @@
 import base64
 import copy
 import json
+import openai
 import time
 from argparse import ArgumentParser
 from contextlib import asynccontextmanager
