@@ -1,5 +1,5 @@
 import type { Completion, Message, FunctionSpec } from "./types.js";
-const BASE = (process.env.AEGIS_BASE_URL || "http://127.0.0.1:8000").replace(/\\/$/, "");
+const BASE = (process.env.AEGIS_BASE_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
 export async function complete(messages: Message[], functions: FunctionSpec[]): Promise<Message> {
  const response = await fetch(`${BASE}/v1/chat/completions`, {method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({model:"mr-aegis",messages,functions,function_call:"auto",temperature:0.2,top_p:0.8,max_length:1600,stream:false}),signal:AbortSignal.timeout(180000)});
  if(!response.ok) throw new Error(`Mr Aegis HTTP ${response.status}: ${(await response.text()).slice(0,1600)}`);
