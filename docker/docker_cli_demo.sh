@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #
-# This script will automatically pull docker image from DockerHub, and start a container to run the Qwen-Chat cli-demo.
+# This script will automatically pull docker image from DockerHub, and start a container to run the Aegis-Chat cli-demo.
 
-IMAGE_NAME=qwenllm/qwen:cu117
-QWEN_CHECKPOINT_PATH=/path/to/Qwen-Chat
-CONTAINER_NAME=qwen
+IMAGE_NAME=aegisllm/aegis:cu117
+AEGIS_CHECKPOINT_PATH=/path/to/Aegis-Chat
+CONTAINER_NAME=aegis
 
 function usage() {
     echo '
-Usage: bash docker/docker_cli_demo.sh [-i IMAGE_NAME] -c [/path/to/Qwen-Chat] [-n CONTAINER_NAME]
+Usage: bash docker/docker_cli_demo.sh [-i IMAGE_NAME] -c [/path/to/Aegis-Chat] [-n CONTAINER_NAME]
 '
 }
 
@@ -20,7 +20,7 @@ while [[ "$1" != "" ]]; do
             ;;
         -c | --checkpoint )
             shift
-            QWEN_CHECKPOINT_PATH=$1
+            AEGIS_CHECKPOINT_PATH=$1
             ;;
         -n | --container-name )
             shift
@@ -38,8 +38,8 @@ while [[ "$1" != "" ]]; do
     shift
 done
 
-if [ ! -e ${QWEN_CHECKPOINT_PATH}/config.json ]; then
-    echo "Checkpoint config.json file not found in ${QWEN_CHECKPOINT_PATH}, exit."
+if [ ! -e ${AEGIS_CHECKPOINT_PATH}/config.json ]; then
+    echo "Checkpoint config.json file not found in ${AEGIS_CHECKPOINT_PATH}, exit."
     exit 1
 fi
 
@@ -49,6 +49,6 @@ sudo docker pull ${IMAGE_NAME} || {
 }
 
 sudo docker run --gpus all --rm --name ${CONTAINER_NAME} \
-    --mount type=bind,source=${QWEN_CHECKPOINT_PATH},target=/data/shared/Qwen/Qwen-Chat \
+    --mount type=bind,source=${AEGIS_CHECKPOINT_PATH},target=/data/shared/Aegis/Aegis-Chat \
     -it ${IMAGE_NAME} \
-    python cli_demo.py -c /data/shared/Qwen/Qwen-Chat/
+    python cli_demo.py -c /data/shared/Aegis/Aegis-Chat/

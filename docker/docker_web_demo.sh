@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 #
-# This script will automatically pull docker image from DockerHub, and start a daemon container to run the Qwen-Chat web-demo.
+# This script will automatically pull docker image from DockerHub, and start a daemon container to run the Aegis-Chat web-demo.
 
-IMAGE_NAME=qwenllm/qwen:cu117
-QWEN_CHECKPOINT_PATH=/path/to/Qwen-7B-Chat
+IMAGE_NAME=aegisllm/aegis:cu117
+AEGIS_CHECKPOINT_PATH=/path/to/Aegis-7B-Chat
 PORT=8901
-CONTAINER_NAME=qwen
+CONTAINER_NAME=aegis
 
 function usage() {
     echo '
-Usage: bash docker/docker_web_demo.sh [-i IMAGE_NAME] -c [/path/to/Qwen-Chat] [-n CONTAINER_NAME] [--port PORT]
+Usage: bash docker/docker_web_demo.sh [-i IMAGE_NAME] -c [/path/to/Aegis-Chat] [-n CONTAINER_NAME] [--port PORT]
 '
 }
 
@@ -21,7 +21,7 @@ while [[ "$1" != "" ]]; do
             ;;
         -c | --checkpoint )
             shift
-            QWEN_CHECKPOINT_PATH=$1
+            AEGIS_CHECKPOINT_PATH=$1
             ;;
         -n | --container-name )
             shift
@@ -43,8 +43,8 @@ while [[ "$1" != "" ]]; do
     shift
 done
 
-if [ ! -e ${QWEN_CHECKPOINT_PATH}/config.json ]; then
-    echo "Checkpoint config.json file not found in ${QWEN_CHECKPOINT_PATH}, exit."
+if [ ! -e ${AEGIS_CHECKPOINT_PATH}/config.json ]; then
+    echo "Checkpoint config.json file not found in ${AEGIS_CHECKPOINT_PATH}, exit."
     exit 1
 fi
 
@@ -55,9 +55,9 @@ sudo docker pull ${IMAGE_NAME} || {
 
 sudo docker run --gpus all -d --restart always --name ${CONTAINER_NAME} \
     -v /var/run/docker.sock:/var/run/docker.sock -p ${PORT}:80 \
-    --mount type=bind,source=${QWEN_CHECKPOINT_PATH},target=/data/shared/Qwen/Qwen-Chat \
+    --mount type=bind,source=${AEGIS_CHECKPOINT_PATH},target=/data/shared/Aegis/Aegis-Chat \
     -it ${IMAGE_NAME} \
-    python web_demo.py --server-port 80 --server-name 0.0.0.0 -c /data/shared/Qwen/Qwen-Chat/ && {
+    python web_demo.py --server-port 80 --server-name 0.0.0.0 -c /data/shared/Aegis/Aegis-Chat/ && {
     echo "Successfully started web demo. Open 'http://localhost:${PORT}' to try!
 Run \`docker logs ${CONTAINER_NAME}\` to check demo status.
 Run \`docker rm -f ${CONTAINER_NAME}\` to stop and remove the demo."
