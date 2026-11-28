@@ -18,7 +18,7 @@ import json
 
 def format_train_sample(messages):
     #
-    # You do not need the `function` role, as Qwen's function calling is actually implemented via ReAct,
+    # You do not need the `function` role, as Aegis's function calling is actually implemented via ReAct,
     # not by adding a `function` role or `function_call` message. See openai_api.py for details.
     #
     # If you need the `system` role, you might need to modify `finetune.py` accordingly.
@@ -190,7 +190,7 @@ Final Answer: 1158
             # Round #3
             {
                 "role": "user",
-                "content": "You are so smart, Qwen.",  # No action is needed for this question.
+                "content": "You are so smart, Aegis.",  # No action is needed for this question.
             },
             {
                 "role": "assistant",

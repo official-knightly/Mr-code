@@ -1,11 +1,11 @@
 #
 # 相关材料：
 #   ReAct Prompting 原理简要介绍，不包含代码实现：
-#       https://github.com/QwenLM/Qwen-7B/blob/main/examples/react_prompt.md
+#       https://github.com/AegisLM/Aegis-7B/blob/main/examples/react_prompt.md
 #   基于 model.chat 接口（对话模式）的 ReAct Prompting 实现（含接入 LangChain 的工具实现）：
-#       https://github.com/QwenLM/Qwen-7B/blob/main/examples/langchain_tooluse.ipynb
+#       https://github.com/AegisLM/Aegis-7B/blob/main/examples/langchain_tooluse.ipynb
 #   基于 model.generate 接口（续写模式）的 ReAct Prompting 实现，比 chat 模式的实现更复杂些：
-#       https://github.com/QwenLM/Qwen-7B/blob/main/examples/react_demo.py（本文件）
+#       https://github.com/AegisLM/Aegis-7B/blob/main/examples/react_demo.py（本文件）
 #
 
 import json
@@ -18,7 +18,7 @@ from transformers.generation import GenerationConfig
 
 for _ in range(10):  # 网络不稳定，多试几次
     try:
-        name = 'Qwen/Qwen-7B-Chat'
+        name = 'Aegis/Aegis-7B-Chat'
         tokenizer = AutoTokenizer.from_pretrained(name, trust_remote_code=True)
         generation_config = GenerationConfig.from_pretrained(name, trust_remote_code=True)
         model = AutoModelForCausalLM.from_pretrained(
@@ -240,7 +240,7 @@ def test():
     for query in ['你好', '搜索一下谁是周杰伦', '再搜下他老婆是谁', '给我画个可爱的小猫吧，最好是黑猫']:
         print(f"User's Query:\n{query}\n")
         response, history = llm_with_plugin(prompt=query, history=history, list_of_plugin_info=tools)
-        print(f"Qwen's Response:\n{response}\n")
+        print(f"Aegis's Response:\n{response}\n")
 
 
 if __name__ == "__main__":
@@ -250,14 +250,14 @@ if __name__ == "__main__":
 User's Query:
 你好
 
-Qwen's Response:
+Aegis's Response:
 Thought: 提供的工具对回答该问题帮助较小，我将不使用工具直接作答。
 Final Answer: 你好！很高兴见到你。有什么我可以帮忙的吗？
 
 User's Query:
 搜索一下谁是周杰伦
 
-Qwen's Response:
+Aegis's Response:
 Thought: 我应该使用Google搜索查找相关信息。
 Action: google_search
 Action Input: {"search_query": "周杰伦"}
@@ -268,7 +268,7 @@ Final Answer: 周杰伦（Jay Chou）是一位来自台湾的歌手、词曲创�
 User's Query:
 再搜下他老婆是谁
 
-Qwen's Response:
+Aegis's Response:
 Thought: 我应该使用Google搜索查找相关信息。
 Action: google_search
 Action Input: {"search_query": "周杰伦 老婆"}
@@ -279,7 +279,7 @@ Final Answer: 周杰伦的老婆是Hannah Quinlivan，她是一位澳大利亚�
 User's Query:
 给我画个可爱的小猫吧，最好是黑猫
 
-Qwen's Response:
+Aegis's Response:
 Thought: 我应该使用文生图API来生成一张可爱的小猫图片。
 Action: image_gen
 Action Input: {"prompt": "cute black cat"}

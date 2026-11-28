@@ -4,9 +4,9 @@ from pprint import pprint
 
 import openai
 
-# To start an OpenAI-like Qwen server, use the following commands:
-#   git clone https://github.com/QwenLM/Qwen-7B;
-#   cd Qwen-7B;
+# To start an OpenAI-like Aegis server, use the following commands:
+#   git clone https://github.com/AegisLM/Aegis-7B;
+#   cd Aegis-7B;
 #   pip install fastapi uvicorn openai pydantic sse_starlette;
 #   python openai_api.py;
 #
@@ -15,15 +15,15 @@ openai.api_base = 'http://localhost:8000/v1'
 openai.api_key = 'none'
 
 
-def call_qwen(messages, functions=None):
+def call_aegis(messages, functions=None):
     print('input:')
     pprint(messages, indent=2)
     if functions:
-        response = openai.ChatCompletion.create(model='Qwen',
+        response = openai.ChatCompletion.create(model='Aegis',
                                                 messages=messages,
                                                 functions=functions)
     else:
-        response = openai.ChatCompletion.create(model='Qwen',
+        response = openai.ChatCompletion.create(model='Aegis',
                                                 messages=messages)
     response = response.choices[0]['message']
     response = json.loads(json.dumps(response,
@@ -36,14 +36,14 @@ def call_qwen(messages, functions=None):
 
 def test_1():
     messages = [{'role': 'user', 'content': '你好'}]
-    call_qwen(messages)
+    call_aegis(messages)
     messages.append({'role': 'assistant', 'content': '你好！很高兴为你提供帮助。'})
 
     messages.append({
         'role': 'user',
         'content': '给我讲一个年轻人奋斗创业最终取得成功的故事。故事只能有一句话。'
     })
-    call_qwen(messages)
+    call_aegis(messages)
     messages.append({
         'role':
         'assistant',
@@ -52,7 +52,7 @@ def test_1():
     })
 
     messages.append({'role': 'user', 'content': '给这个故事起一个标题'})
-    call_qwen(messages)
+    call_aegis(messages)
 
 
 def test_2():
@@ -94,14 +94,14 @@ def test_2():
     ]
 
     messages = [{'role': 'user', 'content': '（请不要调用工具）\n\n你好'}]
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append({
         'role': 'assistant',
         'content': '你好！很高兴见到你。有什么我可以帮忙的吗？'
     }, )
 
     messages.append({'role': 'user', 'content': '搜索一下谁是周杰伦'})
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append({
         'role': 'assistant',
         'content': '我应该使用Google搜索查找相关信息。',
@@ -116,7 +116,7 @@ def test_2():
         'name': 'google_search',
         'content': 'Jay Chou is a Taiwanese singer.',
     })
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append(
         {
             'role': 'assistant',
@@ -124,7 +124,7 @@ def test_2():
         }, )
 
     messages.append({'role': 'user', 'content': '搜索一下他老婆是谁'})
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append({
         'role': 'assistant',
         'content': '我应该使用Google搜索查找相关信息。',
@@ -139,7 +139,7 @@ def test_2():
         'name': 'google_search',
         'content': 'Hannah Quinlivan'
     })
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append(
         {
             'role': 'assistant',
@@ -147,7 +147,7 @@ def test_2():
         }, )
 
     messages.append({'role': 'user', 'content': '用文生图工具画个可爱的小猫吧，最好是黑猫'})
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append({
         'role': 'assistant',
         'content': '我应该使用文生图API来生成一张可爱的小猫图片。',
@@ -165,7 +165,7 @@ def test_2():
         'content':
         '{"image_url": "https://image.pollinations.ai/prompt/cute%20black%20cat"}',
     })
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
 
 
 def test_3():
@@ -191,11 +191,11 @@ def test_3():
 
     messages = [{
         'role': 'user',
-        # Note: The current version of Qwen-7B-Chat (as of 2023.08) performs okay with Chinese tool-use prompts,
+        # Note: The current version of Aegis-7B-Chat (as of 2023.08) performs okay with Chinese tool-use prompts,
         # but performs terribly when it comes to English tool-use prompts, due to a mistake in data collecting.
         'content': '波士顿天气如何？',
     }]
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
     messages.append(
         {
             'role': 'assistant',
@@ -214,7 +214,7 @@ def test_3():
         'content':
         '{"temperature": "22", "unit": "celsius", "description": "Sunny"}',
     })
-    call_qwen(messages, functions)
+    call_aegis(messages, functions)
 
 
 def test_4():
@@ -222,7 +222,7 @@ def test_4():
     from langchain.chat_models import ChatOpenAI
 
     llm = ChatOpenAI(
-        model_name='Qwen',
+        model_name='Aegis',
         openai_api_base='http://localhost:8000/v1',
         openai_api_key='EMPTY',
         streaming=False,
@@ -241,7 +241,7 @@ def test_4():
 if __name__ == '__main__':
     print('### Test Case 1 - No Function Calling (普通问答、无函数调用) ###')
     test_1()
-    print('### Test Case 2 - Use Qwen-Style Functions (函数调用，千问格式) ###')
+    print('### Test Case 2 - Use Aegis-Style Functions (函数调用，千问格式) ###')
     test_2()
     print('### Test Case 3 - Use GPT-Style Functions (函数调用，GPT格式) ###')
     test_3()
