@@ -44,7 +44,7 @@ if __name__ == "__main__":
         "--checkpoint-path",
         type=str,
         help="Checkpoint path",
-        default="Qwen/Qwen-7B",
+        default="Aegis/Aegis-7B",
     )
     parser.add_argument(
         "-f",
