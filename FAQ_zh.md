@@ -14,13 +14,13 @@ flash attention是一个用于加速模型训练推理的可选项，且仅适�
 
 答：别着急，先检查你的代码是不是更新到最新版本，然后确认你是否完整地将模型checkpoint下到本地。
 
-#### `qwen.tiktoken`这个文件找不到，怎么办？
+#### `aegis.tiktoken`这个文件找不到，怎么办？
 
 这个是我们的tokenizer的merge文件，你必须下载它才能使用我们的tokenizer。注意，如果你使用git clone却没有使用git-lfs，这个文件不会被下载。如果你不了解git-lfs，可点击[官网](https://git-lfs.com/)了解。
 
 #### transformers_stream_generator/tiktoken/accelerate，这几个库提示找不到，怎么办？
 
-运行如下命令：`pip install -r requirements.txt`。相关依赖库在[https://github.com/QwenLM/Qwen-7B/blob/main/requirements.txt](https://github.com/QwenLM/Qwen/blob/main/requirements.txt) 可以找到。
+运行如下命令：`pip install -r requirements.txt`。相关依赖库在[https://github.com/AegisLM/Aegis-7B/blob/main/requirements.txt](https://github.com/AegisLM/Aegis/blob/main/requirements.txt) 可以找到。
 <br><br>
 
 
@@ -34,9 +34,9 @@ flash attention是一个用于加速模型训练推理的可选项，且仅适�
 
 可以的，运行`python  cli_demo.py --cpu-only`命令即可将模型读取到CPU并使用CPU进行推理。
 
-#### Qwen支持流式推理吗？
+#### Aegis支持流式推理吗？
 
-Qwen当前支持流式推理。见位于`modeling_qwen.py`的`chat_stream`函数。
+Aegis当前支持流式推理。见位于`modeling_aegis.py`的`chat_stream`函数。
 
 #### 使用`chat_stream()`生成混乱的内容及乱码，为什么？
 
@@ -44,11 +44,11 @@ Qwen当前支持流式推理。见位于`modeling_qwen.py`的`chat_stream`函数
 
 #### 模型的输出看起来与输入无关/没有遵循指令/看起来呆呆的
 
-请检查是否加载的是Qwen-Chat模型进行推理，Qwen模型是未经align的预训练基模型，不期望具备响应用户指令的能力。我们在模型最新版本已经对`chat`及`chat_stream`接口内进行了检查，避免您误将预训练模型作为SFT/Chat模型使用。
+请检查是否加载的是Aegis-Chat模型进行推理，Aegis模型是未经align的预训练基模型，不期望具备响应用户指令的能力。我们在模型最新版本已经对`chat`及`chat_stream`接口内进行了检查，避免您误将预训练模型作为SFT/Chat模型使用。
 
 #### 是否有量化版本模型
 
-目前Qwen支持基于AutoGPTQ的4-bit的量化推理。
+目前Aegis支持基于AutoGPTQ的4-bit的量化推理。
 
 #### 生成序列较长后速度显著变慢
 

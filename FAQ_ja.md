@@ -14,13 +14,13 @@ Flash attention は、トレーニングと推論を加速するオプション�
 
 コードを最新のものに更新し、すべてのシャードされたチェックポイントファイルを正しくダウンロードしたかどうか確認してください。
 
-#### `qwen.tiktoken` が見つかりません。これは何ですか？
+#### `aegis.tiktoken` が見つかりません。これは何ですか？
 
 これはトークナイザーのマージファイルです。ダウンロードする必要があります。[git-lfs](https://git-lfs.com) を使わずにリポジトリを git clone しただけでは、このファイルをダウンロードできないことに注意してください。
 
 #### transformers_stream_generator/tiktoken/accelerate が見つかりません。
 
-コマンド `pip install -r requirements.txt` を実行してください。このファイルは [https://github.com/QwenLM/Qwen/blob/main/requirements.txt](https://github.com/QwenLM/Qwen/blob/main/requirements.txt) にあります。
+コマンド `pip install -r requirements.txt` を実行してください。このファイルは [https://github.com/AegisLM/Aegis/blob/main/requirements.txt](https://github.com/AegisLM/Aegis/blob/main/requirements.txt) にあります。
 <br><br>
 
 
@@ -37,9 +37,9 @@ Flash attention は、トレーニングと推論を加速するオプション�
 
 はい、`python cli_demo.py --cpu-only` を実行すると、CPU のみでモデルと推論をロードします。
 
-#### Qwen はストリーミングに対応していますか？
+#### Aegis はストリーミングに対応していますか？
 
-`modeling_qwen.py` の `chat_stream` 関数を参照してください。
+`modeling_aegis.py` の `chat_stream` 関数を参照してください。
 
 #### chat_stream() を使用すると、結果に文字化けが発生します。
 
@@ -47,7 +47,7 @@ Flash attention は、トレーニングと推論を加速するオプション�
 
 #### インストラクションとは関係ないようですが...
 
-Qwen ではなく Qwen-Chat を読み込んでいないか確認してください。Qwen はアライメントなしのベースモデルで、SFT/Chat モデルとは挙動が異なります。
+Aegis ではなく Aegis-Chat を読み込んでいないか確認してください。Aegis はアライメントなしのベースモデルで、SFT/Chat モデルとは挙動が異なります。
 
 #### 量子化はサポートされていますか？
 
@@ -67,7 +67,7 @@ NTK が適用されていることを確認してください。`config.json` �
 
 ## ファインチューニング
 
-#### Qwen は SFT、あるいは RLHF に対応できますか？
+#### Aegis は SFT、あるいは RLHF に対応できますか？
 
 SFTのコードは提供します。[FastChat](**[https://github.com/lm-sys/FastChat](https://github.com/lm-sys/FastChat))、[Firefly]([https://github.com/yangjianxin1/Firefly](https://github.com/yangjianxin1/Firefly))、[**LLaMA Efficient Tuning**]([https://github.com/hiyouga/LLaMA-Efficient-Tuning](https://github.com/hiyouga/LLaMA-Efficient-Tuning))など、いくつかのプロジェクトではファインチューニングをサポートしています。近日中に関連コードを更新する予定です。
 <br><br>
