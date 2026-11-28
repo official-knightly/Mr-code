@@ -14,13 +14,13 @@ Flash attention is an option for accelerating training and inference. Only NVIDI
 
 Please check if you have updated the code to the latest, and correctly downloaded all the sharded checkpoint files.
 
-#### `qwen.tiktoken` is not found. What is it?
+#### `aegis.tiktoken` is not found. What is it?
 
 This is the merge file of the tokenizer. You have to download it. Note that if you just git clone the repo without [git-lfs](https://git-lfs.com), you cannot download this file.
 
 #### transformers_stream_generator/tiktoken/accelerate not found
 
-Run the command `pip install -r requirements.txt`. You can find the file at [https://github.com/QwenLM/Qwen-7B/blob/main/requirements.txt](https://github.com/QwenLM/Qwen/blob/main/requirements.txt).
+Run the command `pip install -r requirements.txt`. You can find the file at [https://github.com/AegisLM/Aegis-7B/blob/main/requirements.txt](https://github.com/AegisLM/Aegis/blob/main/requirements.txt).
 <br><br>
 
 
@@ -36,9 +36,9 @@ Yes, see `web_demo.py` for web demo and `cli_demo.py` for CLI demo. See README f
 
 Yes, run `python  cli_demo.py --cpu-only` will load the model and inference on CPU only.
 
-#### Can Qwen support streaming?
+#### Can Aegis support streaming?
 
-Yes. See the function `chat_stream` in `modeling_qwen.py`.
+Yes. See the function `chat_stream` in `modeling_aegis.py`.
 
 #### Gibberish in result when using chat_stream().
 
@@ -46,7 +46,7 @@ This is because tokens represent bytes and a single token may be a meaningless s
 
 #### It seems that the generation is not related to the instruction...
 
-Please check if you are loading Qwen-Chat instead of Qwen. Qwen is the base model without alignment, which behaves differently from the SFT/Chat model.
+Please check if you are loading Aegis-Chat instead of Aegis. Aegis is the base model without alignment, which behaves differently from the SFT/Chat model.
 
 #### Is quantization supported?
 
@@ -66,7 +66,7 @@ Please ensure that NTK is applied. `use_dynamc_ntk` and `use_logn_attn` in `conf
 
 ## Finetuning
 
-#### Can Qwen support SFT or even RLHF?
+#### Can Aegis support SFT or even RLHF?
 
 Yes, we now support SFT, including full-parameter finetuning, LoRA, and Q-LoRA. Also you can check other projects like [FastChat](**[https://github.com/lm-sys/FastChat](https://github.com/lm-sys/FastChat)), [Firefly]([https://github.com/yangjianxin1/Firefly](https://github.com/yangjianxin1/Firefly)), [**LLaMA Efficient Tuning**]([https://github.com/hiyouga/LLaMA-Efficient-Tuning](https://github.com/hiyouga/LLaMA-Efficient-Tuning)), etc.
 
