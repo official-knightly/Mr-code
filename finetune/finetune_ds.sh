@@ -23,7 +23,7 @@ MASTER_ADDR=${MASTER_ADDR:-localhost}
 # The port for communication
 MASTER_PORT=${MASTER_PORT:-6001}
 
-MODEL="Qwen/Qwen-7B" # Set the path if you do not want to load from huggingface directly
+MODEL="Aegis/Aegis-7B" # Set the path if you do not want to load from huggingface directly
 # ATTENTION: specify the path to your training data, which should be a json file consisting of a list of conversations.
 # See the section for finetuning in README for more information.
 DATA="path_to_data"
@@ -68,7 +68,7 @@ torchrun $DISTRIBUTED_ARGS finetune.py \
     --model_name_or_path $MODEL \
     --data_path $DATA \
     --bf16 True \
-    --output_dir output_qwen \
+    --output_dir output_aegis \
     --num_train_epochs 5 \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
